@@ -1,0 +1,22 @@
+[28.862s] Invoking command in '/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/src/arm_control': PS1=(.venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(.venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_control build --build-base /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build install --record /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/install.log --single-version-externally-managed install_data
+[39.739s] running egg_info
+[40.030s] writing ../../build/arm_control/arm_control.egg-info/PKG-INFO
+[40.047s] writing dependency_links to ../../build/arm_control/arm_control.egg-info/dependency_links.txt
+[40.059s] writing entry points to ../../build/arm_control/arm_control.egg-info/entry_points.txt
+[40.070s] writing requirements to ../../build/arm_control/arm_control.egg-info/requires.txt
+[40.093s] writing top-level names to ../../build/arm_control/arm_control.egg-info/top_level.txt
+[40.796s] reading manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+[40.965s] adding license file 'LICENSE'
+[41.042s] writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+[41.051s] running build
+[41.054s] running build_py
+[41.416s] running install
+[41.511s] running install_lib
+[42.692s] running install_data
+[42.767s] running install_egg_info
+[43.133s] removing '/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info' (and everything under it)
+[43.304s] Copying ../../build/arm_control/arm_control.egg-info to /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info
+[43.981s] running install_scripts
+[47.717s] Installing lerobot_driver script to /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/arm_control
+[47.753s] writing list of installed files to '/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/install.log'
+[47.826s] Invoked command in '/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/src/arm_control' returned '0': PS1=(.venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(.venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_control build --build-base /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build install --record /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/install.log --single-version-externally-managed install_data

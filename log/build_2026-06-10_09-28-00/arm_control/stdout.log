@@ -1,0 +1,53 @@
+running develop
+Removing /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm-control.egg-link (link to .)
+running egg_info
+writing ../../build/arm_control/arm_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/arm_control/arm_control.egg-info/dependency_links.txt
+writing entry points to ../../build/arm_control/arm_control.egg-info/entry_points.txt
+writing requirements to ../../build/arm_control/arm_control.egg-info/requires.txt
+writing top-level names to ../../build/arm_control/arm_control.egg-info/top_level.txt
+reading manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build
+creating /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib
+creating /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+copying arm_control/force_sensor.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+copying arm_control/lerobot_driver.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+copying arm_control/__init__.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+creating /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+copying arm_control/utilities/fk.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+copying arm_control/utilities/jacobian.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+copying arm_control/utilities/se3.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+copying arm_control/utilities/so3.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+copying arm_control/utilities/__init__.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+running install
+running install_lib
+creating /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/force_sensor.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/lerobot_driver.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+creating /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/fk.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/jacobian.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/se3.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/so3.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/__init__.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+copying /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/build/lib/arm_control/__init__.py -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/force_sensor.py to force_sensor.cpython-312.pyc
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_driver.py to lerobot_driver.cpython-312.pyc
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/fk.py to fk.cpython-312.pyc
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/jacobian.py to jacobian.cpython-312.pyc
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/se3.py to se3.cpython-312.pyc
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/so3.py to so3.cpython-312.pyc
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/__init__.py to __init__.cpython-312.pyc
+byte-compiling /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__init__.py to __init__.cpython-312.pyc
+running install_data
+copying resource/arm_control -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/share/ament_index/resource_index/packages
+copying package.xml -> /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/share/arm_control
+running install_egg_info
+Copying ../../build/arm_control/arm_control.egg-info to /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info
+running install_scripts
+Installing lerobot script to /mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/install/arm_control/lib/arm_control
+writing list of installed files to '/mnt/c/Users/conno/OneDrive/Documents/Github/surgical-arm-ros2/build/arm_control/install.log'

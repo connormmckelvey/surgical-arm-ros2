@@ -1,0 +1,2 @@
+[console_scripts]
+lerobot_driver = arm_control.lerobot_driver:main
