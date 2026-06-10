@@ -1,5 +1,5 @@
 import numpy as np
-from se3 import *
+from arm_control.utilities.se3 import *
 
 
 def space_product_of_transforms(M: np.ndarray, T_list: list) -> np.ndarray:

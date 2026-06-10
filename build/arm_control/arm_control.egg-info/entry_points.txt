@@ -1,2 +1,3 @@
 [console_scripts]
 lerobot_driver = arm_control.lerobot_driver:main
+lerobot_motionplan = arm_control.lerobot_motionplan:main

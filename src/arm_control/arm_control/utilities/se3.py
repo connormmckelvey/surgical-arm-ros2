@@ -1,5 +1,5 @@
 import numpy as np
-from so3 import *
+from arm_control.utilities.so3 import *
 
 
 def screw_axis_from_w_q(w: np.ndarray, q: np.ndarray) -> np.ndarray:

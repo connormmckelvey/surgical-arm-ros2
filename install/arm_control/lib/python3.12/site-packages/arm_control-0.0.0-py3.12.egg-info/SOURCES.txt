@@ -12,6 +12,8 @@ setup.py
 arm_control/__init__.py
 arm_control/force_sensor.py
 arm_control/lerobot_driver.py
+arm_control/lerobot_motionplan.py
+arm_control/utilities/RR_IK.py
 arm_control/utilities/__init__.py
 arm_control/utilities/fk.py
 arm_control/utilities/jacobian.py

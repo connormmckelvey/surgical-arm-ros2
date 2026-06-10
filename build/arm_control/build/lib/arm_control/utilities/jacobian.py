@@ -1,5 +1,5 @@
 import numpy as np
-from se3 import *
+from arm_control.utilities.se3 import *
 
 
 def space_jacobian(S_list: list, theta: np.ndarray) -> np.ndarray:

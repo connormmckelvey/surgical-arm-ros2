@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # EASY-INSTALL-ENTRY-SCRIPT: 'arm-control==0.0.0','console_scripts','lerobot_driver'
 import re
 import sys

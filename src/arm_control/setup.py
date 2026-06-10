@@ -11,7 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools','lerobot'],
     zip_safe=True,
     maintainer='connor',
     maintainer_email='connor@todo.todo',
@@ -24,8 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'lerobot_driver = arm_control.lerobot_driver:main'
-            'lerobot_motionplan = arm_control.lerobot_motionplan:main'
+            'lerobot_driver = arm_control.lerobot_driver:main',
+            'lerobot_motionplan = arm_control.lerobot_motionplan:main',
         ],
     },
 )
