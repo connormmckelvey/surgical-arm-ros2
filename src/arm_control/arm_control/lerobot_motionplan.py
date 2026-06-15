@@ -9,8 +9,7 @@ from arm_control.utilities.fk import *
 from arm_control.utilities.se3 import *
 from arm_control.utilities.jacobian import *
 from arm_control.utilities.so3 import *
-from arm_control.utilities.RR_IK import numerical_inverse_kinematics_position
-
+from arm_control.utilities.jacobian_transpose import jacobian_transpose_position
 
 class LerobotMotionPlannerNode(Node):
     def __init__(self):
@@ -70,6 +69,7 @@ class LerobotMotionPlannerNode(Node):
             10
         )
 
+        # Target Cartesian Pose Subscriber
         self.cartesian_sub = self.create_subscription(
             Point,
             '/arm/target_cartesian_pose',
@@ -77,11 +77,33 @@ class LerobotMotionPlannerNode(Node):
             10
         )
 
+        # FIXED: Corrected standard ROS2 Publisher configuration (No callback parameter)
+        self.current_cartesian_pub = self.create_publisher(
+            Point,
+            '/arm/current_cartesian_pose',
+            10
+        )
+
         self.get_logger().info("Motion Planner Node initialized. Listening on /arm/target_cartesian_pose")
 
     def feedback_callback(self, msg):
-        """ Keeps internal joint state synchronized with hardware reality. """
+        """ Keeps internal joint state synchronized and streams real-time Cartesian feedback. """
+        # update internal state from topic
         self.current_joint_angles = np.array(msg.data, dtype=float)
+
+        # Automatically recalculate where the end-effector physically is right now
+        try:
+            T_base_to_ee = self.compute_forward_kinematics()
+            
+            # Create and publish the geometry point message
+            cartesian_msg = Point()
+            cartesian_msg.x = float(T_base_to_ee[0, 3])
+            cartesian_msg.y = float(T_base_to_ee[1, 3])
+            cartesian_msg.z = float(T_base_to_ee[2, 3])
+            
+            self.current_cartesian_pub.publish(cartesian_msg)
+        except Exception as e:
+            self.get_logger().error(f"Failed to compute or publish forward kinematics: {e}")
 
     def cartesian_callback(self, msg):
         p_des = np.array([msg.x, msg.y, msg.z], dtype=float)
@@ -89,59 +111,48 @@ class LerobotMotionPlannerNode(Node):
         self.command_cartesian_position(p_des)
 
     def compute_forward_kinematics(self):
+        #joint angles in degrees, convert to radians for FK calculation
         theta_deg = np.copy(self.current_joint_angles)
-        theta_deg[5] = 0.0  # Keep gripper fixed during base calculation
         theta_rad = np.radians(theta_deg)
 
         T_base_to_ee = space_product_of_exponentials(self.M, self.S_list, theta_rad)
         return T_base_to_ee
 
     def command_cartesian_position(self, p_des):
-        # 1. FIXED: Isolate gripper state from mathematical solver seed
-        safe_init_angles = np.copy(self.current_joint_angles)
-        gripper_memory = safe_init_angles[5]  # Preserve user gripper state
-        safe_init_angles[5] = 0.0             
+        init_angles = np.copy(self.current_joint_angles)
+        #gripper_memory = safe_init_angles[5]
+        #safe_init_angles[5] = 0.0             
 
-        theta_init_rad = np.radians(safe_init_angles)
+        theta_init_rad = np.radians(init_angles)
 
-        # Execute numerical IK solver loop
-        theta_sol_rad, success = numerical_inverse_kinematics_position(
-            M_ee=self.M,
-            B_list=self.B_list,
-            theta_init=theta_init_rad,
-            p_des=p_des,
-            max_iters=100,
-            tol_converge=1e-6,
-            tol_manipulability=1e-3,
-            q_min=self.theta_min,
-            q_max=self.theta_max,
-            k_null=0.1,
-            k_damping=0.01,
-            print_iterations=False,
+        #compute
+        theta_sol_rad = jacobian_transpose_position(
+                    M_ee=self.M,
+                    B_list=self.B_list,
+                    theta_init=theta_init_rad,
+                    p_des=p_des,
+                    max_iters=100,
+                    tol_converge=1e-6,
+                    q_min=self.theta_min,
+                    q_max=self.theta_max
         )
 
-        # 2. FIXED: Safeguard check against out-of-bounds calculations
-        if not success:
-            self.get_logger().error(f"IK failed for target position {p_des.tolist()}! Command dropped.")
+        # Verify if the solution is structurally valid (not NaN or infinite)
+        if theta_sol_rad is None or np.isnan(theta_sol_rad).any() or np.isinf(theta_sol_rad).any():
+            self.get_logger().error(f"IK engine failed to reach target coordinate: X={p_des[0]:.3f}, Y={p_des[1]:.3f}, Z={p_des[2]:.3f}! Command dropped.")
             return
 
         # Convert back to degrees for the LeRobot driver
         theta_deg = np.degrees(np.asarray(theta_sol_rad, dtype=float))
         
         # Restore the physical gripper angle back onto the target packet
-        theta_deg[5] = gripper_memory
-
+        #theta_deg[5] = gripper_memory
+        
         # Build and publish joint command array
         msg = Float32MultiArray()
         msg.data = theta_deg.tolist()
         self.target_joint_pub.publish(msg)
         self.get_logger().info(f"Successfully sent IK-resolved joint angles to driver node.")
-
-    def command_joint_angles(self, angles_deg):
-        msg = Float32MultiArray()
-        msg.data = list(angles_deg)
-        self.target_joint_pub.publish(msg)
-
 
 def main(args=None):
     rclpy.init(args=args)

@@ -1,5 +1,0 @@
-lerobot
-setuptools
-
-[test]
-pytest

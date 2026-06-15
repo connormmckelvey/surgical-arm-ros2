@@ -1,3 +1,5 @@
 venv/
 .venv/
 env/
+Z_ZED_SDK_Ubuntu24_cuda12.8_tensorrt10.9_v5.3.1.zstd.run
+Z_pyzed-5.3-cp312-cp312-linux_x86_64.whl

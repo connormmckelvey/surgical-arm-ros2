@@ -10,6 +10,10 @@ class LeRobotDriverNode(Node):
     def __init__(self):
         super().__init__('lerobot_driver')        
         
+        # Motion parameters
+        self.max_step_deg = 2.0
+        self.control_loop_period = 0.05  # 20Hz loop
+
         # Order: [shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper]
         self.lerobot_keys = [
             "shoulder_pan.pos", "shoulder_lift.pos", "elbow_flex.pos",
@@ -22,21 +26,14 @@ class LeRobotDriverNode(Node):
         self.robot.connect(calibrate=True)
         self.get_logger().info("Hardware connection established over LeRobot follower bus.")
 
-        # 2. FORCE HOME ON STARTUP (The Chicken & Egg Solver)
+        # 2. Zero Out All Joints to Home Position
         self.get_logger().info("Initializing: Commanding all joints to 0.0 Position...")
-        
         startup_home_action = {name: 0.0 for name in self.lerobot_keys}
         self.robot.send_action(startup_home_action)
         
-        # 3. SET THE BASELINE REFERENCE
         # Now that the physical hardware has been explicitly sent to 0, 
-        # we can safely anchor our tracking arrays to 0.0 without any jumping bugs.
         self.current_positions = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0], dtype=float)
         self.target_positions = np.copy(self.current_positions)
-        
-        # Motion parameters
-        self.max_step_deg = 2.0
-        self.control_loop_period = 0.05  # 20Hz loop
 
         # 4. ROS2 Subscribers and Publishers
         self.subscription = self.create_subscription(

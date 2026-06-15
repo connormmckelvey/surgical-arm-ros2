@@ -11,7 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools','lerobot'],
+    install_requires=['setuptools','lerobot', 'numpy', 'opencv-python', 'pyzed'],
     zip_safe=True,
     maintainer='connor',
     maintainer_email='connor@todo.todo',
@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
             'lerobot_driver = arm_control.lerobot_driver:main',
             'lerobot_motionplan = arm_control.lerobot_motionplan:main',
+            'camera_driver = arm_control.camera_driver:main',
+            'teleop_transformer = arm_control.teleop_transformer:main',
         ],
     },
 )
