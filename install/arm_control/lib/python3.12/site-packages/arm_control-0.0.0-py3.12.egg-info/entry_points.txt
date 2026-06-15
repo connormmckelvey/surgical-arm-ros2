@@ -1,0 +1,6 @@
+[console_scripts]
+camera_driver = arm_control.camera_driver:main
+lerobot_driver = arm_control.lerobot_driver:main
+lerobot_motionplan = arm_control.lerobot_motionplan:main
+lerobot_sim = arm_control.lerobot_sim:main
+teleop_transformer = arm_control.teleop_transformer:main

@@ -1,0 +1,114 @@
+[0.000000] (-) TimerEvent: {}
+[0.001291] (arm_control) JobQueued: {'identifier': 'arm_control', 'dependencies': OrderedDict()}
+[0.001426] (arm_control) JobStarted: {'identifier': 'arm_control'}
+[0.099342] (-) TimerEvent: {}
+[0.200272] (-) TimerEvent: {}
+[0.301095] (-) TimerEvent: {}
+[0.401796] (-) TimerEvent: {}
+[0.502535] (-) TimerEvent: {}
+[0.603045] (-) TimerEvent: {}
+[0.703639] (-) TimerEvent: {}
+[0.804304] (-) TimerEvent: {}
+[0.904965] (-) TimerEvent: {}
+[1.005594] (-) TimerEvent: {}
+[1.106389] (-) TimerEvent: {}
+[1.206983] (-) TimerEvent: {}
+[1.307546] (-) TimerEvent: {}
+[1.408085] (-) TimerEvent: {}
+[1.508830] (-) TimerEvent: {}
+[1.609460] (-) TimerEvent: {}
+[1.710326] (-) TimerEvent: {}
+[1.811167] (-) TimerEvent: {}
+[1.911866] (-) TimerEvent: {}
+[2.012671] (-) TimerEvent: {}
+[2.113546] (-) TimerEvent: {}
+[2.157069] (arm_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/arm_control', 'build', '--build-base', '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build', 'install', '--record', '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/connor/robotics_projects/surgical-arm-ros2/src/arm_control', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'connor', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}', 'HOME': '/home/connor', 'OLDPWD': '/mnt/c/Users/conno', 'ROS_PYTHON_VERSION': '3', 'PS1': '(venv) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'connor', 'NAME': 'ConnorsProArt', 'WSL_INTEROP': '/run/WSL/19866_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/home/connor/robotics_projects/surgical-arm-ros2/venv/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.8.9-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/cursor/resources/app/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/conno/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/conno/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/conno/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/conno/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/conno/AppData/Roaming/npm:/mnt/c/Users/conno/AppData/Local/Python/bin:/mnt/c/msys64/ucrt64/bin:/snap/bin', 'WT_SESSION': '1d1b93c8-47e8-4ce4-b95e-cb7057399df8', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'VIRTUAL_ENV_PROMPT': '(venv)', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/connor/robotics_projects/surgical-arm-ros2/venv', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control', 'RCUTILS_COLORIZED_OUTPUT': '1', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[2.214333] (-) TimerEvent: {}
+[2.315196] (-) TimerEvent: {}
+[2.415953] (-) TimerEvent: {}
+[2.517153] (-) TimerEvent: {}
+[2.560551] (arm_control) StdoutLine: {'line': b'running egg_info\n'}
+[2.561615] (arm_control) StdoutLine: {'line': b'creating ../../build/arm_control/arm_control.egg-info\n'}
+[2.584858] (arm_control) StdoutLine: {'line': b'writing ../../build/arm_control/arm_control.egg-info/PKG-INFO\n'}
+[2.585628] (arm_control) StdoutLine: {'line': b'writing dependency_links to ../../build/arm_control/arm_control.egg-info/dependency_links.txt\n'}
+[2.586103] (arm_control) StdoutLine: {'line': b'writing entry points to ../../build/arm_control/arm_control.egg-info/entry_points.txt\n'}
+[2.586607] (arm_control) StdoutLine: {'line': b'writing requirements to ../../build/arm_control/arm_control.egg-info/requires.txt\n'}
+[2.587011] (arm_control) StdoutLine: {'line': b'writing top-level names to ../../build/arm_control/arm_control.egg-info/top_level.txt\n'}
+[2.587612] (arm_control) StdoutLine: {'line': b"writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'\n"}
+[2.617394] (-) TimerEvent: {}
+[2.634288] (arm_control) StdoutLine: {'line': b"reading manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'\n"}
+[2.635152] (arm_control) StdoutLine: {'line': b"adding license file 'LICENSE'\n"}
+[2.636609] (arm_control) StdoutLine: {'line': b"writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'\n"}
+[2.638832] (arm_control) StdoutLine: {'line': b'running build\n'}
+[2.639635] (arm_control) StdoutLine: {'line': b'running build_py\n'}
+[2.640030] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build\n'}
+[2.640513] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib\n'}
+[2.641323] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.642325] (arm_control) StdoutLine: {'line': b'copying arm_control/force_sensor.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.643984] (arm_control) StdoutLine: {'line': b'copying arm_control/lerobot_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.645051] (arm_control) StdoutLine: {'line': b'copying arm_control/lerobot_motionplan.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.646177] (arm_control) StdoutLine: {'line': b'copying arm_control/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.646773] (arm_control) StdoutLine: {'line': b'copying arm_control/camera_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.647869] (arm_control) StdoutLine: {'line': b'copying arm_control/teleop_transformer.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.649699] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.650721] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/RR_IK.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.651723] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/jacobian_transpose.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.652805] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/jacobian.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.653981] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/so3.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.655139] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/fk.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.656131] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.656853] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/se3.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.657651] (arm_control) StdoutLine: {'line': b'copying arm_control/utilities/ZED_bodytracking.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities\n'}
+[2.659563] (arm_control) StdoutLine: {'line': b'running install\n'}
+[2.668630] (arm_control) StdoutLine: {'line': b'running install_lib\n'}
+[2.691279] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[2.691992] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/force_sensor.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[2.692753] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/lerobot_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[2.693307] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/lerobot_motionplan.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[2.693872] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[2.694283] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/camera_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[2.694384] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.694771] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/RR_IK.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.695372] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/jacobian_transpose.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.695847] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/jacobian.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.696422] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/so3.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.696841] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/fk.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.697669] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.698417] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/se3.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.699217] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/ZED_bodytracking.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities\n'}
+[2.700065] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/teleop_transformer.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[2.702984] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/force_sensor.py to force_sensor.cpython-312.pyc\n'}
+[2.703766] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_driver.py to lerobot_driver.cpython-312.pyc\n'}
+[2.706069] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_motionplan.py to lerobot_motionplan.cpython-312.pyc\n'}
+[2.708957] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__init__.py to __init__.cpython-312.pyc\n'}
+[2.709513] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/camera_driver.py to camera_driver.cpython-312.pyc\n'}
+[2.711491] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/RR_IK.py to RR_IK.cpython-312.pyc\n'}
+[2.713664] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/jacobian_transpose.py to jacobian_transpose.cpython-312.pyc\n'}
+[2.716746] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/jacobian.py to jacobian.cpython-312.pyc\n'}
+[2.717534] (-) TimerEvent: {}
+[2.719577] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/so3.py to so3.cpython-312.pyc\n'}
+[2.722037] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/fk.py to fk.cpython-312.pyc\n'}
+[2.723794] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/__init__.py to __init__.cpython-312.pyc\n'}
+[2.724610] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/se3.py to se3.cpython-312.pyc\n'}
+[2.727237] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/ZED_bodytracking.py to ZED_bodytracking.cpython-312.pyc\n'}
+[2.735702] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/teleop_transformer.py to teleop_transformer.cpython-312.pyc\n'}
+[2.737240] (arm_control) StdoutLine: {'line': b'running install_data\n'}
+[2.737907] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index\n'}
+[2.738362] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index/resource_index\n'}
+[2.740800] (arm_control) StdoutLine: {'line': b'creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index/resource_index/packages\n'}
+[2.741388] (arm_control) StdoutLine: {'line': b'copying resource/arm_control -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index/resource_index/packages\n'}
+[2.742085] (arm_control) StdoutLine: {'line': b'copying package.xml -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/arm_control\n'}
+[2.742591] (arm_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.767029] (arm_control) StdoutLine: {'line': b'Copying ../../build/arm_control/arm_control.egg-info to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info\n'}
+[2.769539] (arm_control) StdoutLine: {'line': b'running install_scripts\n'}
+[2.817798] (-) TimerEvent: {}
+[2.918546] (-) TimerEvent: {}
+[3.000486] (arm_control) StdoutLine: {'line': b'Installing camera_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.001512] (arm_control) StdoutLine: {'line': b'Installing lerobot_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.002108] (arm_control) StdoutLine: {'line': b'Installing lerobot_motionplan script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.002831] (arm_control) StdoutLine: {'line': b'Installing teleop_transformer script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.003764] (arm_control) StdoutLine: {'line': b"writing list of installed files to '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log'\n"}
+[3.018743] (-) TimerEvent: {}
+[3.049788] (arm_control) CommandEnded: {'returncode': 0}
+[3.093827] (arm_control) JobEnded: {'identifier': 'arm_control', 'rc': 0}
+[3.096927] (-) EventReactorShutdown: {}

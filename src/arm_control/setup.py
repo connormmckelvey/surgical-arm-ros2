@@ -28,6 +28,7 @@ setup(
             'lerobot_motionplan = arm_control.lerobot_motionplan:main',
             'camera_driver = arm_control.camera_driver:main',
             'teleop_transformer = arm_control.teleop_transformer:main',
+            'lerobot_sim = arm_control.lerobot_sim:main',
         ],
     },
 )
