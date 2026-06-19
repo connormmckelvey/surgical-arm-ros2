@@ -4,3 +4,4 @@ lerobot_driver = arm_control.lerobot_driver:main
 lerobot_motionplan = arm_control.lerobot_motionplan:main
 lerobot_sim = arm_control.lerobot_sim:main
 teleop_transformer = arm_control.teleop_transformer:main
+training_force_sensor = arm_control.training_force_sensor:main

@@ -29,6 +29,7 @@ setup(
             'camera_driver = arm_control.camera_driver:main',
             'teleop_transformer = arm_control.teleop_transformer:main',
             'lerobot_sim = arm_control.lerobot_sim:main',
+            'training_force_sensor = arm_control.training_force_sensor:main',
         ],
     },
 )

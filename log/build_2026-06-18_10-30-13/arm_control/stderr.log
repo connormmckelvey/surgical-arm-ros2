@@ -1,0 +1,5 @@
+  File "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/camera_driver.py", line 177
+    def publish_plane_as_cloud(self, 3d_bounds):
+                                     ^
+SyntaxError: invalid decimal literal
+
