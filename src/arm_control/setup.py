@@ -26,7 +26,7 @@ setup(
         'console_scripts': [
             'lerobot_driver = arm_control.lerobot_driver:main',
             'lerobot_motionplan = arm_control.lerobot_motionplan:main',
-            'camera_driver = arm_control.camera_driver:main',
+            'camera_calibration = arm_control.camera_calibration:main',
             'teleop_transformer = arm_control.teleop_transformer:main',
             'lerobot_sim = arm_control.lerobot_sim:main',
             'training_force_sensor = arm_control.training_force_sensor:main',

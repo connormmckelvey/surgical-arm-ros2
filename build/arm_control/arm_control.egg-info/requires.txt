@@ -1,8 +1,0 @@
-lerobot
-numpy
-opencv-python
-pyzed
-setuptools
-
-[test]
-pytest
