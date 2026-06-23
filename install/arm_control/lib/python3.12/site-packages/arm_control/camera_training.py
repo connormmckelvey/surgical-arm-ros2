@@ -21,9 +21,9 @@ from arm_control.utilities.ZED_bodytracking_34 import (
 )
 import arm_control.utilities.rosbag_capture as rb
 
-class CameraCalibrationNode(Node):
+class CameraTrainingNode(Node):
     def __init__(self):
-        super().__init__('camera_calibration')
+        super().__init__('camera_training')
         
         # --- Configurations ---
         self.arm_to_track = "left"  
@@ -356,7 +356,7 @@ class CameraCalibrationNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = CameraCalibrationNode()
+    node = CameraTrainingNode()
     try:
         node.start_processing_loop()
     except KeyboardInterrupt:

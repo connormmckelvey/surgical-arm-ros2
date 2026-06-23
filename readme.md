@@ -20,7 +20,7 @@ On Ubuntu 24:
     ros2 topic echo <topic> //listen to a topic to see what is sent
     ros2 run rviz2 rivz2 //run visualizer
     ros2 bag play <dir_name_of_rosbag>
-    ros2 service call /training_sensor/tare std_srvs/srv/Trigger //tare the training_force_sensor
+    ros2 service call /force_sensor/tare std_srvs/srv/Trigger //tare the force_sensor
 
 
 Note: for hardware if you are running on a windows machine in wsl you will need to attach various hardware ports
@@ -43,10 +43,10 @@ Note: for hardware if you are running on a windows machine in wsl you will need 
     - `target_cartesian_pose` outputs point
     - `arm/target_pose_marker` a Marker for rviz2 to visualize transformed target position sometimes will be inverted do to default rviz2 coordinate frame even though its working correctly on the robot. 
     <br>
-- `training_force_sensor` opens a hardware port the arduino which reads data from our load cell. Stores both the tare offset and scaling factor as params and performs the calibration in the node. IT DOES NOT USE THE BUILT IN FEATURES OF THE HARDWARE LIBARY. It is currently calibrated using 200g but needs to be tared on start up. 
-    - `training_sensor/tare` Trigger service that tares the node
-    - `training_sensor/calibrate` assumes a 200g mass was placed on the load cell and calibrates the Newton output
-    - `training_sensor/data` is a `DiagnosticData` type (which should probably change) that publishes the current `newtons`,`raw_adc`,`tared_adc`,`active_offset`,`active_scale`,`arduino_millis`  
+- `force_sensor` opens a hardware port the arduino which reads data from our load cell. Stores both the tare offset and scaling factor as params and performs the calibration in the node. IT DOES NOT USE THE BUILT IN FEATURES OF THE HARDWARE LIBARY. It is currently calibrated using 200g but needs to be tared on start up. 
+    - `force_sensor/tare` Trigger service that tares the node
+    - `force_sensor/calibrate` assumes a 200g mass was placed on the load cell and calibrates the Newton output
+    - `force_sensor/data` is a `DiagnosticData` type (which should probably change) that publishes the current `newtons`,`raw_adc`,`tared_adc`,`active_offset`,`active_scale`,`arduino_millis`  
     <br>
 - `camera_calibration` the most complex and least modular node of the group, it is designed to run in parallel to the `training_force_sensor` during data collection. This node lets you select planes, stitches them together using ConvexHull to create a working surface with a normal vector. It then calculates the centroid of that area and treating it as the origin. It publishes visualizations of this and a normalized hand coordinate. Finally it uses `rosbag2` to store all of this data in one place to be used later. When the node is run a window will pop up, click on planes to highlight them, and then press 's' to generate the surface and centroid this will also start the rosbag recording. 'esc' stops the recording and clears the surface. 
     - `camera/human_arm_pose` publishes a `PoseArray` including the shoulder, elbow, wrist, hand positions. 
