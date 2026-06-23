@@ -20,6 +20,7 @@ On Ubuntu 24:
     ros2 topic echo <topic> //listen to a topic to see what is sent
     ros2 run rviz2 rivz2 //run visualizer
     ros2 bag play <dir_name_of_rosbag>
+    ros2 service call /training_sensor/tare std_srvs/srv/Trigger //tare the training_force_sensor
 
 
 Note: for hardware if you are running on a windows machine in wsl you will need to attach various hardware ports

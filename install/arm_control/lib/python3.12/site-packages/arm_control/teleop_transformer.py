@@ -34,7 +34,7 @@ class TeleopTransformerNode(Node):
         self.target_pose_pub = self.create_publisher(
             Point, '/arm/target_cartesian_pose', 10)
             
-        # NEW: Visual debug publisher for RViz
+        # Visual debug publisher for RViz
         self.marker_pub = self.create_publisher(
             Marker, '/arm/target_pose_marker', 10)
 

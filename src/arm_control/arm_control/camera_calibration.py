@@ -19,6 +19,7 @@ from arm_control.utilities.ZED_bodytracking_34 import (
     get_arm_points,
     draw_arm_points_and_lines,
 )
+import arm_control.utilities.rosbag_capture as rb
 
 class CameraCalibrationNode(Node):
     def __init__(self):
@@ -29,6 +30,13 @@ class CameraCalibrationNode(Node):
         self.alpha = 0.08
         self.rosbag_enabled = True  
         self.rosbag_folder = "training_bags"
+
+        self.topics_to_record = [
+            "camera/human_arm_pose",
+            "camera/normalized_hand_position",
+            "camera/visualization",
+            "training_sensor/data"
+        ]   
 
         # --- Publishers ---
         self.rviz_pub = self.create_publisher(Marker, 'camera/visualization', 10)
@@ -85,10 +93,6 @@ class CameraCalibrationNode(Node):
             self.clicked_pixel = [x, y]
 
     def process_and_update_mesh(self):
-        if len(self.accumulated_points) < 6:
-            self.get_logger().warning("Select more areas before stitching.")
-            return
-
         pcd = o3d.geometry.PointCloud()
         pcd.points = o3d.utility.Vector3dVector(np.array(self.accumulated_points))
         
@@ -187,42 +191,9 @@ class CameraCalibrationNode(Node):
         self.normal_marker_msg.points.append(start_pt)
         self.normal_marker_msg.points.append(end_pt)
 
-
-
-        # ==================================================================
-        # AUTOMATION: START ROSBAG RECORDING (With your added topic)
-        # ==================================================================
-        if self.bag_process is None and self.rosbag_enabled:
-
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            bag_name = f"training_episode_{timestamp}"
-            
-            topics_to_record = [
-                "camera/human_arm_pose",
-                "camera/normalized_hand_position",
-                "camera/visualization",
-                "/training_sensor/data"
-            ]
-            
-            cmd = ["ros2", "bag", "record", "-s", "mcap", "-o", self.rosbag_folder] + topics_to_record
-
-            time.sleep(1)
-
-            self.get_logger().info(f"rosbag started: {bag_name}")
-            self.bag_process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
         self.publish_rviz_artifacts()
 
     def send_rviz_delete_markers(self):
-        # ==================================================================
-        # STOP ROSBAG
-        # ==================================================================
-        if self.bag_process is not None:
-            self.bag_process.send_signal(signal.SIGINT) 
-            self.bag_process.wait()                      
-            self.bag_process = None
-            self.get_logger().info("Rosbag folder successfully generated and closed.")
-
         now = self.get_clock().now().to_msg()
         marker_ns_list = ["surface_centroid", "surface_mesh", "surface_outlines", "hand_position", "hand_coordinates", "surface_normal"]
         for m_id in [0, 1, 2, 3, 4, 5]:  
@@ -241,15 +212,15 @@ class CameraCalibrationNode(Node):
         cv.setMouseCallback(window_name, self.mouse_callback)
 
         while rclpy.ok():
+            #make sure cameras on
             if self.zed.grab(self.runtime) != sl.ERROR_CODE.SUCCESS:
                 continue
-
+            #grab frame
             self.zed.retrieve_image(self.image, sl.VIEW.LEFT)
             frame = self.image.get_data()
             if frame.shape[2] == 4:
                 frame = cv.cvtColor(frame, cv.COLOR_BGRA2BGR)
-
-            # 1. Calibration Clicking Engine
+            # if clicked
             if self.clicked_pixel is not None and self.final_centroid is None:
                 plane = sl.Plane()
                 if self.zed.find_plane_at_hit(self.clicked_pixel, plane) == sl.ERROR_CODE.SUCCESS:
@@ -271,7 +242,7 @@ class CameraCalibrationNode(Node):
                     if len(poly_pixels) > 2:
                         cv.fillPoly(frame, [np.array(poly_pixels, dtype=np.int32)], (0, 180, 0))
 
-            # 2. Extract Body Tracker Skeletal Framework
+            # Extract and Publish Arm Pose Data if Centroid is Established
             if self.final_centroid is not None:
                 self.zed.retrieve_bodies(self.bodies, self.body_runtime)
                 body = get_single_body(self.bodies, mode="closest")
@@ -344,12 +315,18 @@ class CameraCalibrationNode(Node):
             cv.imshow(window_name, frame)
             
             key = cv.waitKey(10) & 0xFF
-            if key == 27:  
+            if key == ord('q'):  
                 self.accumulated_points = []
                 self.plane_chunks = []
                 self.send_rviz_delete_markers()
                 self.get_logger().info("Mesh memory and visuals cleared.")
-            elif key == ord('s'):  
+                if self.rosbag_enabled and self.bag_process is not None:
+                    rb.stop_rosbag_recording(self.bag_process)
+                    self.bag_process = None
+            elif key == ord('s'):
+                if self.rosbag_enabled:
+                    self.bag_process = rb.start_rosbag_recording(self.topics_to_record, self.rosbag_folder)
+                    time.sleep(1)
                 self.process_and_update_mesh()
 
         cv.destroyAllWindows()
@@ -373,8 +350,7 @@ class CameraCalibrationNode(Node):
 
     def cleanup(self):
         if self.bag_process is not None:
-            self.bag_process.send_signal(signal.SIGINT)
-            self.bag_process.wait()
+            rb.stop_rosbag_recording(self.bag_process)
         self.get_logger().info("Safely closing ZED peripheral hardware hooks.")
         self.zed.close()
 
