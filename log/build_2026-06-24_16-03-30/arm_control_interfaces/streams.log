@@ -1,0 +1,50 @@
+[0.037s] Invoking command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake /home/connor/robotics_projects/surgical-arm-ros2/src/arm_control_interfaces -DCMAKE_INSTALL_PREFIX=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces
+[0.358s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.358s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.358s]   CMake.
+[0.358s] 
+[0.358s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.358s]   to tell CMake that the project requires at least <min> but has been updated
+[0.358s]   to work with policies introduced by <max> or earlier.
+[0.359s] 
+[0.359s] 
+[0.667s] -- The C compiler identification is GNU 13.3.0
+[2.239s] -- The CXX compiler identification is GNU 13.3.0
+[3.518s] -- Detecting C compiler ABI info
+[3.854s] -- Detecting C compiler ABI info - done
+[3.879s] -- Check for working C compiler: /usr/bin/cc - skipped
+[3.880s] -- Detecting C compile features
+[3.880s] -- Detecting C compile features - done
+[3.908s] -- Detecting CXX compiler ABI info
+[4.237s] -- Detecting CXX compiler ABI info - done
+[4.265s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[4.266s] -- Detecting CXX compile features
+[4.267s] -- Detecting CXX compile features - done
+[4.284s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[4.586s] -- Found Python3: /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/python3 (found version "3.12.3") found components: Interpreter
+[4.825s] -- Found geometry_msgs: 5.3.7 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[5.474s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[5.503s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[5.554s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.583s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.646s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[5.665s] -- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[6.258s] Traceback (most recent call last):
+[6.258s]   File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
+[6.258s]     from catkin_pkg.package import parse_package_string
+[6.259s] ModuleNotFoundError: No module named 'catkin_pkg'
+[6.271s] CMake Error at /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[6.271s]   
+[6.272s]   execute_process(/home/connor/robotics_projects/surgical-arm-ros2/venv/bin/python3
+[6.272s]   /opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[6.272s]   /home/connor/robotics_projects/surgical-arm-ros2/src/arm_control_interfaces/package.xml
+[6.273s]   /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces/ament_cmake_core/package.cmake)
+[6.274s]   returned error code 1
+[6.275s] Call Stack (most recent call first):
+[6.275s]   /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[6.275s]   /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:220 (ament_package_xml)
+[6.276s]   CMakeLists.txt:13 (rosidl_generate_interfaces)
+[6.276s] 
+[6.276s] 
+[6.276s] -- Configuring incomplete, errors occurred!
+[6.298s] Invoked command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake /home/connor/robotics_projects/surgical-arm-ros2/src/arm_control_interfaces -DCMAKE_INSTALL_PREFIX=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces

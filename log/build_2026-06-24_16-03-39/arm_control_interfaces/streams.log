@@ -1,0 +1,243 @@
+[0.033s] Invoking command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake /home/connor/robotics_projects/surgical-arm-ros2/src/arm_control_interfaces -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPython3_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces
+[0.346s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.346s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.346s]   CMake.
+[0.346s] 
+[0.346s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.346s]   to tell CMake that the project requires at least <min> but has been updated
+[0.346s]   to work with policies introduced by <max> or earlier.
+[0.346s] 
+[0.346s] 
+[0.356s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.693s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter
+[0.922s] -- Found geometry_msgs: 5.3.7 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.466s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.484s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.517s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.545s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.636s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[1.656s] -- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[3.215s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[5.267s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.174s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.188s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[6.545s] -- Found PythonExtra: /usr/bin/python3
+[8.284s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed
+[8.552s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter
+[8.608s] -- Configuring done (8.3s)
+[8.781s] -- Generating done (0.2s)
+[8.825s] -- Build files have been written to: /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces
+[8.844s] Invoked command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake /home/connor/robotics_projects/surgical-arm-ros2/src/arm_control_interfaces -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPython3_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces
+[8.850s] Invoking command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake --build /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces -- -j24 -l24
+[9.159s] [  2%] [1m[34mGenerating type hashes for ROS interfaces[0m
+[9.161s] [  5%] [1m[34mGenerating Rust code for ROS interfaces[0m
+[9.171s] [  5%] Built target ament_cmake_python_copy_arm_control_interfaces
+[9.679s] [  5%] Built target arm_control_interfaces__rosidl_generator_type_description
+[9.691s] [  8%] [1m[34mGenerating C code for ROS interfaces[0m
+[9.700s] [ 11%] [1m[34mGenerating C++ code for ROS interfaces[0m
+[9.718s] [ 11%] Built target arm_control_interfaces__rs
+[9.721s] running egg_info
+[9.723s] creating arm_control_interfaces.egg-info
+[9.766s] writing arm_control_interfaces.egg-info/PKG-INFO
+[9.767s] writing dependency_links to arm_control_interfaces.egg-info/dependency_links.txt
+[9.771s] writing top-level names to arm_control_interfaces.egg-info/top_level.txt
+[9.771s] writing manifest file 'arm_control_interfaces.egg-info/SOURCES.txt'
+[9.883s] reading manifest file 'arm_control_interfaces.egg-info/SOURCES.txt'
+[9.884s] writing manifest file 'arm_control_interfaces.egg-info/SOURCES.txt'
+[9.958s] [ 11%] Built target ament_cmake_python_build_arm_control_interfaces_egg
+[10.254s] [ 11%] Built target arm_control_interfaces__cpp
+[10.284s] [ 14%] [32mBuilding C object CMakeFiles/arm_control_interfaces__rosidl_generator_c.dir/rosidl_generator_c/arm_control_interfaces/srv/detail/get_plane_at_point__description.c.o[0m
+[10.285s] [ 17%] [32mBuilding C object CMakeFiles/arm_control_interfaces__rosidl_generator_c.dir/rosidl_generator_c/arm_control_interfaces/srv/detail/get_plane_at_point__functions.c.o[0m
+[10.285s] [ 20%] [32mBuilding C object CMakeFiles/arm_control_interfaces__rosidl_generator_c.dir/rosidl_generator_c/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.c.o[0m
+[10.495s] [ 22%] [1m[32mLinking C shared library libarm_control_interfaces__rosidl_generator_c.so[0m
+[10.756s] [ 22%] Built target arm_control_interfaces__rosidl_generator_c
+[10.770s] [ 28%] [1m[34mGenerating C type support for eProsima Fast-RTPS[0m
+[10.771s] [ 28%] [1m[34mGenerating C type support dispatch for ROS interfaces[0m
+[10.772s] [ 34%] [1m[34mGenerating C++ type support for eProsima Fast-RTPS[0m
+[10.772s] [ 34%] [1m[34mGenerating C++ type support dispatch for ROS interfaces[0m
+[10.772s] [ 37%] [1m[34mGenerating C++ introspection for ROS interfaces[0m
+[10.773s] [ 40%] [1m[34mGenerating C introspection for ROS interfaces[0m
+[11.271s] [ 42%] [32mBuilding CXX object CMakeFiles/arm_control_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/arm_control_interfaces/srv/get_plane_at_point__type_support.cpp.o[0m
+[11.321s] [ 45%] [32mBuilding CXX object CMakeFiles/arm_control_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/arm_control_interfaces/srv/get_plane_at_point__type_support.cpp.o[0m
+[11.341s] [ 48%] [32mBuilding C object CMakeFiles/arm_control_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.c.o[0m
+[11.354s] [ 51%] [32mBuilding CXX object CMakeFiles/arm_control_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.cpp.o[0m
+[11.382s] [ 54%] [1m[32mLinking CXX shared library libarm_control_interfaces__rosidl_typesupport_c.so[0m
+[11.422s] [ 57%] [32mBuilding CXX object CMakeFiles/arm_control_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/arm_control_interfaces/srv/detail/dds_fastrtps/get_plane_at_point__type_support.cpp.o[0m
+[11.465s] [ 60%] [1m[32mLinking C shared library libarm_control_interfaces__rosidl_typesupport_introspection_c.so[0m
+[11.498s] [ 62%] [32mBuilding CXX object CMakeFiles/arm_control_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/arm_control_interfaces/srv/detail/get_plane_at_point__type_support_c.cpp.o[0m
+[11.672s] [ 62%] Built target arm_control_interfaces__rosidl_typesupport_c
+[11.750s] [ 62%] Built target arm_control_interfaces__rosidl_typesupport_introspection_c
+[12.562s] [ 65%] [1m[32mLinking CXX shared library libarm_control_interfaces__rosidl_typesupport_cpp.so[0m
+[12.743s] [ 68%] [1m[32mLinking CXX shared library libarm_control_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[12.799s] [ 71%] [1m[32mLinking CXX shared library libarm_control_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[12.888s] [ 71%] Built target arm_control_interfaces__rosidl_typesupport_cpp
+[13.071s] [ 71%] Built target arm_control_interfaces__rosidl_typesupport_fastrtps_c
+[13.075s] [ 71%] Built target arm_control_interfaces__rosidl_typesupport_introspection_cpp
+[13.256s] [ 74%] [1m[32mLinking CXX shared library libarm_control_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[13.618s] [ 74%] Built target arm_control_interfaces__rosidl_typesupport_fastrtps_cpp
+[13.643s] [ 74%] Built target arm_control_interfaces
+[13.670s] [ 77%] [1m[34mGenerating Python code for ROS interfaces[0m
+[14.455s] [ 77%] Built target arm_control_interfaces__py
+[14.485s] [ 80%] [32mBuilding C object CMakeFiles/arm_control_interfaces__rosidl_generator_py.dir/rosidl_generator_py/arm_control_interfaces/srv/_get_plane_at_point_s.c.o[0m
+[14.963s] [ 82%] [1m[32mLinking C shared library libarm_control_interfaces__rosidl_generator_py.so[0m
+[15.268s] [ 82%] Built target arm_control_interfaces__rosidl_generator_py
+[15.287s] [ 85%] [32mBuilding C object CMakeFiles/arm_control_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/arm_control_interfaces/_arm_control_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[15.288s] [ 88%] [32mBuilding C object CMakeFiles/arm_control_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/arm_control_interfaces/_arm_control_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[15.291s] [ 91%] [32mBuilding C object CMakeFiles/arm_control_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/arm_control_interfaces/_arm_control_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[15.483s] [ 94%] [1m[32mLinking C shared module rosidl_generator_py/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[15.489s] [ 97%] [1m[32mLinking C shared module rosidl_generator_py/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[15.490s] [100%] [1m[32mLinking C shared module rosidl_generator_py/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_c.so[0m
+[15.653s] [100%] Built target arm_control_interfaces_s__rosidl_typesupport_fastrtps_c
+[15.654s] [100%] Built target arm_control_interfaces_s__rosidl_typesupport_c
+[15.654s] [100%] Built target arm_control_interfaces_s__rosidl_typesupport_introspection_c
+[15.671s] Invoked command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake --build /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces -- -j24 -l24
+[15.938s] Invoking command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake --install /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces
+[16.203s] -- Install configuration: ""
+[16.204s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/ament_index/resource_index/rosidl_interfaces/arm_control_interfaces
+[16.206s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/srv/GetPlaneAtPoint.json
+[16.206s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces
+[16.208s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv
+[16.208s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/get_plane_at_point.h
+[16.210s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail
+[16.211s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__functions.c
+[16.212s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.c
+[16.212s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__functions.h
+[16.213s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__description.c
+[16.213s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.h
+[16.215s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__struct.h
+[16.216s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg
+[16.216s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg/rosidl_generator_c__visibility_control.h
+[16.217s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/library_path.sh
+[16.218s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/library_path.dsv
+[16.219s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_generator_c.so
+[16.220s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_generator_c.so" to ""
+[16.221s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces
+[16.221s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv
+[16.221s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail
+[16.221s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__rosidl_typesupport_fastrtps_c.h
+[16.222s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg
+[16.222s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[16.222s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_fastrtps_c.so
+[16.224s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[16.224s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces
+[16.225s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv
+[16.226s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/get_plane_at_point.hpp
+[16.227s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail
+[16.228s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__struct.hpp
+[16.229s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.hpp
+[16.229s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__builder.hpp
+[16.230s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__traits.hpp
+[16.231s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg
+[16.231s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[16.232s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces
+[16.232s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv
+[16.232s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail
+[16.233s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__rosidl_typesupport_fastrtps_cpp.hpp
+[16.234s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/dds_fastrtps
+[16.234s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg
+[16.234s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[16.235s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[16.235s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[16.235s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces
+[16.235s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv
+[16.235s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail
+[16.235s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.c
+[16.235s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__rosidl_typesupport_introspection_c.h
+[16.236s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg
+[16.236s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[16.237s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_introspection_c.so
+[16.238s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[16.238s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_c.so
+[16.238s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_c.so" to ""
+[16.238s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces
+[16.238s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv
+[16.239s] -- Up-to-date: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail
+[16.239s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__type_support.cpp
+[16.239s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/include/arm_control_interfaces/arm_control_interfaces/srv/detail/get_plane_at_point__rosidl_typesupport_introspection_cpp.hpp
+[16.239s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_introspection_cpp.so
+[16.240s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[16.240s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_cpp.so
+[16.241s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_typesupport_cpp.so" to ""
+[16.241s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/pythonpath.sh
+[16.241s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/pythonpath.dsv
+[16.242s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces-0.0.0-py3.12.egg-info
+[16.244s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[16.245s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[16.245s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[16.245s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[16.246s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces
+[16.247s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/srv
+[16.248s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/srv/_get_plane_at_point_s.c
+[16.248s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/srv/__init__.py
+[16.249s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/srv/_get_plane_at_point.py
+[16.250s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/_arm_control_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[16.250s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/_arm_control_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[16.251s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_c.so
+[16.251s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_introspection_c.so
+[16.251s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/__init__.py
+[16.252s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[16.252s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/_arm_control_interfaces_s.ep.rosidl_typesupport_c.c
+[16.344s] Listing '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces'...
+[16.344s] Compiling '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/__init__.py'...
+[16.344s] Listing '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/srv'...
+[16.345s] Compiling '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/srv/__init__.py'...
+[16.345s] Compiling '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/srv/_get_plane_at_point.py'...
+[16.360s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[16.361s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[16.362s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_introspection_c.so
+[16.362s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[16.363s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_c.so
+[16.364s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages/arm_control_interfaces/arm_control_interfaces_s__rosidl_typesupport_c.so" to ""
+[16.364s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_generator_py.so
+[16.365s] -- Set non-toolchain portion of runtime path of "/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/libarm_control_interfaces__rosidl_generator_py.so" to ""
+[16.366s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/ament_index/resource_index/rust_packages/arm_control_interfaces
+[16.367s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust
+[16.367s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust/src
+[16.368s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust/src/srv.rs
+[16.369s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust/src/srv
+[16.370s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust/src/srv/rmw.rs
+[16.371s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust/src/lib.rs
+[16.371s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust/Cargo.toml
+[16.372s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/rust/build.rs
+[16.372s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/srv/GetPlaneAtPoint.idl
+[16.372s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/srv/GetPlaneAtPoint.srv
+[16.374s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/ament_index/resource_index/package_run_dependencies/arm_control_interfaces
+[16.380s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/ament_index/resource_index/parent_prefix_path/arm_control_interfaces
+[16.381s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/ament_prefix_path.sh
+[16.382s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/ament_prefix_path.dsv
+[16.383s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/path.sh
+[16.383s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/environment/path.dsv
+[16.384s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/local_setup.bash
+[16.385s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/local_setup.sh
+[16.386s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/local_setup.zsh
+[16.386s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/local_setup.dsv
+[16.387s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/package.dsv
+[16.387s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/ament_index/resource_index/packages/arm_control_interfaces
+[16.388s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_generator_cExport.cmake
+[16.389s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_generator_cExport-noconfig.cmake
+[16.390s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[16.391s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[16.392s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_generator_cppExport.cmake
+[16.393s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[16.394s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[16.395s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[16.396s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[16.396s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_cExport.cmake
+[16.396s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[16.397s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[16.397s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[16.397s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_cppExport.cmake
+[16.398s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[16.399s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_generator_pyExport.cmake
+[16.399s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/export_arm_control_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[16.399s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/rosidl_cmake-extras.cmake
+[16.399s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[16.400s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[16.400s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[16.401s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[16.402s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[16.402s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[16.403s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfacesConfig.cmake
+[16.404s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/cmake/arm_control_interfacesConfig-version.cmake
+[16.404s] -- Installing: /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/share/arm_control_interfaces/package.xml
+[16.411s] Invoked command in '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy VIRTUAL_ENV_PROMPT=(venv) /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake --install /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces

@@ -13,11 +13,16 @@ The system is designed around modular ROS2 nodes that separate hardware interfac
 ```mermaid
 graph TD
     %% Input Layer
-    ZED[ZED 2i Camera] -->|sl.Bodies / sl.Plane| CamNode[camera_training]
+    ZED[ZED 2i Camera] -->|sl.Camera| ZedDriver[zed_driver]
     Hap[HX711 Arduino Board] -->|Serial/Haplink| ForceNode[force_sensor]
     
+    %% Decoupled Sensor Streams
+    ZedDriver -->|camera/image_raw <br> Image| CamNode[camera_training / camera_execution]
+    ZedDriver -->|camera/human_arm_pose <br> PoseArray| CamNode
+    ZedDriver -->|camera/human_arm_pose <br> PoseArray| TransNode[teleop_transformer]
+    CamNode <-->|JSON Request/Response <br> String| ZedDriver
+    
     %% Processing & Transform Layer
-    CamNode -->|camera/human_arm_pose <br> PoseArray| TransNode[teleop_transformer]
     CamNode -->|camera/normalized_hand_position <br> Point| BagRecord[rosbag2 Recorder]
     ForceNode -->|force_sensor/data <br> DiagnosticStatus| BagRecord
     
@@ -37,17 +42,47 @@ graph TD
 
 ## 2. Node Reference Directory
 
+### `zed_driver`
+* **Source:** [zed_driver.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/zed_driver.py)
+* **Description:** Exclusively interfaces with the ZED 2i camera hardware, publishing raw sensor feeds and tracking data, and hosting plane segmentation services to prevent concurrent device locking errors.
+* **Key Tasks:**
+  * Runs the camera frame loop at 15 Hz.
+  * Streams skeletal tracking joint poses and BGR images.
+  * Listens to plane hit coordinates and resolves 3D plane center and boundaries.
+* **Subscribers:**
+  * `camera/get_plane/request` (`std_msgs/msg/String`)
+* **Publishers:**
+  * `camera/image_raw` (`sensor_msgs/msg/Image`)
+  * `camera/human_arm_pose` (`geometry_msgs/msg/PoseArray`)
+  * `camera/get_plane/response` (`std_msgs/msg/String`)
+
 ### `camera_training`
 * **Source:** [camera_training.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/camera_training.py)
-* **Description:** Interfacers with the ZED 2i camera to extract surface plane geometry and perform real-time body skeleton tracking.
+* **Description:** Decoupled application interface that processes training demonstrations relative to clicked plane centroids.
 * **Key Tasks:**
-  * Stitches clicked surface points together using Open3D's ConvexHull to create a coordinate origin (Centroid) and normal vector.
-  * Measures hand position in camera space and publishes the hand coordinates relative to the calculated plane Centroid.
-  * Orchestrates `rosbag2` recording in the background using `mcap` storage formats.
+  * Displays raw frames from `zed_driver` and registers mouse clicks to trigger plane detection.
+  * Computes the hand offset relative to the plane Centroid and publishes normalized coordinates.
+  * Orchestrates `rosbag2` recording.
+* **Subscribers:**
+  * `camera/image_raw` (`sensor_msgs/msg/Image`)
+  * `camera/human_arm_pose` (`geometry_msgs/msg/PoseArray`)
+  * `camera/get_plane/response` (`std_msgs/msg/String`)
 * **Publishers:**
-  * `camera/visualization` (`visualization_msgs/msg/Marker`): Publishes 3D geometry outlines, centroid sphere, normal arrow, and hand coordinates.
-  * `camera/human_arm_pose` (`geometry_msgs/msg/PoseArray`): Joint position array containing `[Shoulder, Elbow, Wrist, Hand]`.
-  * `camera/normalized_hand_position` (`geometry_msgs/msg/Point`): Real-time offset between the tracked hand and the surface plane centroid.
+  * `camera/visualization` (`visualization_msgs/msg/Marker`)
+  * `camera/normalized_hand_position` (`geometry_msgs/msg/Point`)
+  * `camera/get_plane/request` (`std_msgs/msg/String`)
+
+### `camera_execution`
+* **Source:** [camera_execution.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/camera_execution.py)
+* **Description:** Teleoperation client mirroring the training interface, mapping human gestures to active workspace commands.
+* **Subscribers:**
+  * `camera/image_raw` (`sensor_msgs/msg/Image`)
+  * `camera/human_arm_pose` (`geometry_msgs/msg/PoseArray`)
+  * `camera/get_plane/response` (`std_msgs/msg/String`)
+* **Publishers:**
+  * `camera/visualization` (`visualization_msgs/msg/Marker`)
+  * `camera/normalized_hand_position` (`geometry_msgs/msg/Point`)
+  * `camera/get_plane/request` (`std_msgs/msg/String`)
 
 ### `teleop_transformer`
 * **Source:** [teleop_transformer.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/teleop_transformer.py) / [training_transformer.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/training_transformer.py)
@@ -184,19 +219,27 @@ Run the following commands in separate terminals to spin up the simulation works
    ```bash
    ros2 run arm_control lerobot_sim
    ```
-2. **Launch Motion Planner:**
+2. **Launch ZED Camera Driver:**
+   ```bash
+   ros2 run arm_control zed_driver
+   ```
+3. **Launch Motion Planner:**
    ```bash
    ros2 run arm_control lerobot_motionplan
    ```
-3. **Launch Teleop Coordinate Transformer:**
+4. **Launch Teleop Coordinate Transformer:**
    ```bash
    ros2 run arm_control teleop_transformer
    ```
-4. **Launch RViz Visualizer:**
+5. **Launch Application UI (Training or Execution):**
+   ```bash
+   ros2 run arm_control camera_training
+   ```
+6. **Launch RViz Visualizer:**
    ```bash
    rviz2
    ```
-5. **Play Demonstration Rosbag:**
+7. **Play Demonstration Rosbag:**
    ```bash
    ros2 bag play training_bags/training_episode_20260622_174229/
    ```

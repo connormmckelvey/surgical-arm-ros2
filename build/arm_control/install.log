@@ -1,5 +1,6 @@
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_sim.py
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/force_sensor.py
+/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/zed_driver.py
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_driver.py
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_motionplan.py
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/camera_execution.py
@@ -22,6 +23,7 @@
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/ZED_bodytracking_34.py
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__pycache__/lerobot_sim.cpython-312.pyc
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__pycache__/force_sensor.cpython-312.pyc
+/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__pycache__/zed_driver.cpython-312.pyc
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__pycache__/lerobot_driver.cpython-312.pyc
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__pycache__/lerobot_motionplan.cpython-312.pyc
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__pycache__/camera_execution.cpython-312.pyc
@@ -51,9 +53,11 @@
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info/requires.txt
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info/dependency_links.txt
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info/SOURCES.txt
+/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/camera_execution
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/camera_training
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/force_sensor
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/lerobot_driver
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/lerobot_motionplan
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/lerobot_sim
 /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/teleop_transformer
+/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control/zed_driver

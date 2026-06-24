@@ -18,6 +18,7 @@ arm_control/lerobot_motionplan.py
 arm_control/lerobot_sim.py
 arm_control/teleop_transformer.py
 arm_control/training_transformer.py
+arm_control/zed_driver.py
 arm_control/utilities/RR_IK.py
 arm_control/utilities/ZED_bodytracking_18.py
 arm_control/utilities/ZED_bodytracking_34.py

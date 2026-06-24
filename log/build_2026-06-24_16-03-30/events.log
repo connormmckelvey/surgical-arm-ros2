@@ -1,0 +1,122 @@
+[0.000000] (-) TimerEvent: {}
+[0.001381] (-) JobUnselected: {'identifier': 'arm_control'}
+[0.001629] (arm_control_interfaces) JobQueued: {'identifier': 'arm_control_interfaces', 'dependencies': OrderedDict()}
+[0.001831] (arm_control_interfaces) JobStarted: {'identifier': 'arm_control_interfaces'}
+[0.025871] (arm_control_interfaces) JobProgress: {'identifier': 'arm_control_interfaces', 'progress': 'cmake'}
+[0.032170] (arm_control_interfaces) Command: {'cmd': ['/home/connor/robotics_projects/surgical-arm-ros2/venv/bin/cmake', '/home/connor/robotics_projects/surgical-arm-ros2/src/arm_control_interfaces', '-DCMAKE_INSTALL_PREFIX=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces'], 'cwd': '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'connor', 'ANTIGRAVITY_SOURCE_METADATA': '{"tool":{"conversationId":"55a306bc-ddd8-46f3-af9f-8414c83d5009", "stepIndex":82, "toolCall":{"id":"auqvz9y7", "name":"run_command", "argumentsJson":"{\\"CommandLine\\":\\"rm -rf build install log \\\\u0026\\\\u0026 colcon build --packages-select arm_control_interfaces\\",\\"Cwd\\":\\"/home/connor/robotics_projects/surgical-arm-ros2\\",\\"WaitMsBeforeAsync\\":10000,\\"toolAction\\":\\"Clean and rebuild arm_control_interfaces\\",\\"toolSummary\\":\\"Clean and rebuild arm_control_interfaces\\"}", "thinkingSignature":"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", "originalName":"run_command"}}}', 'GIT_ASKPASS': '/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/connor', 'OLDPWD': '/home/connor/robotics_projects/surgical-arm-ros2', 'TERM_PROGRAM_VERSION': '1.126.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-846966d4-1e45-44d2-8679-850700b4f0bd.sock', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'VSCODE_GIT_ASKPASS_MAIN': '/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/connor/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'ANTIGRAVITY_AGENT': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/connor/robotics_projects/surgical-arm-ros2/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'connor', 'NAME': 'ConnorsProArt', 'WSL_INTEROP': '/run/WSL/27552_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'dumb', 'PATH': '/home/connor/.gemini/antigravity-cli/bin:/home/connor/.local/bin:/home/connor/robotics_projects/surgical-arm-ros2/venv/bin:/home/connor/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/connor/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/bin/remote-cli:/home/connor/.local/bin:/home/connor/.local/bin:/home/connor/.local/bin:/home/connor/robotics_projects/surgical-arm-ros2/venv/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.8.9-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/cursor/resources/app/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/conno/AppData/Local/agy/bin:/mnt/c/Users/conno/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/conno/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/conno/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/conno/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/conno/AppData/Roaming/npm:/mnt/c/Users/conno/AppData/Local/Python/bin:/mnt/c/msys64/ucrt64/bin:/snap/bin:/home/connor/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/connor/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-10dd2a9abbd401cc.txt', 'LANG': 'C.UTF-8', 'PYTHONSTARTUP': '/home/connor/.vscode-server/data/User/workspaceStorage/f6151e2e7cef4b7a2ea20ecd201edf69/ms-python.python/pythonrc.py', 'ANTIGRAVITY_CONVERSATION_ID': '55a306bc-ddd8-46f3-af9f-8414c83d5009', 'VIRTUAL_ENV_PROMPT': '(venv)', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9c96a062f4.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy', 'ANTIGRAVITY_PROJECT_ID': 'ca68dc2d-9fa0-4775-8b59-2d94295a05a3', 'SHELL': '/bin/bash', 'ANTIGRAVITY_LS_ADDRESS': 'localhost:45401', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/connor/robotics_projects/surgical-arm-ros2/venv', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'ANTIGRAVITY_TRAJECTORY_ID': '1ad1154d-a775-4eef-9e96-c948153d216b', 'PWD': '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces', 'COPILOT_DEBUG_NONCE': '2ae2427b14e28ebdc9038d5738b2b882', 'RCUTILS_COLORIZED_OUTPUT': '1', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'ANTIGRAVITY_CSRF_TOKEN': '', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy', 'WSLENV': 'VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up'}), 'shell': False}
+[0.097424] (-) TimerEvent: {}
+[0.198165] (-) TimerEvent: {}
+[0.298884] (-) TimerEvent: {}
+[0.359517] (arm_control_interfaces) StderrLine: {'line': b'CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.359985] (arm_control_interfaces) StderrLine: {'line': b'  Compatibility with CMake < 3.10 will be removed from a future version of\n'}
+[0.360090] (arm_control_interfaces) StderrLine: {'line': b'  CMake.\n'}
+[0.360164] (arm_control_interfaces) StderrLine: {'line': b'\n'}
+[0.360228] (arm_control_interfaces) StderrLine: {'line': b'  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax\n'}
+[0.360289] (arm_control_interfaces) StderrLine: {'line': b'  to tell CMake that the project requires at least <min> but has been updated\n'}
+[0.360363] (arm_control_interfaces) StderrLine: {'line': b'  to work with policies introduced by <max> or earlier.\n'}
+[0.360423] (arm_control_interfaces) StderrLine: {'line': b'\n'}
+[0.360485] (arm_control_interfaces) StderrLine: {'line': b'\n'}
+[0.399160] (-) TimerEvent: {}
+[0.500294] (-) TimerEvent: {}
+[0.601108] (-) TimerEvent: {}
+[0.668307] (arm_control_interfaces) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.701326] (-) TimerEvent: {}
+[0.801968] (-) TimerEvent: {}
+[0.902684] (-) TimerEvent: {}
+[1.003471] (-) TimerEvent: {}
+[1.104223] (-) TimerEvent: {}
+[1.204795] (-) TimerEvent: {}
+[1.305447] (-) TimerEvent: {}
+[1.406059] (-) TimerEvent: {}
+[1.506767] (-) TimerEvent: {}
+[1.607528] (-) TimerEvent: {}
+[1.708422] (-) TimerEvent: {}
+[1.809374] (-) TimerEvent: {}
+[1.910112] (-) TimerEvent: {}
+[2.010734] (-) TimerEvent: {}
+[2.111388] (-) TimerEvent: {}
+[2.212422] (-) TimerEvent: {}
+[2.240463] (arm_control_interfaces) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[2.312731] (-) TimerEvent: {}
+[2.413596] (-) TimerEvent: {}
+[2.514297] (-) TimerEvent: {}
+[2.614947] (-) TimerEvent: {}
+[2.715835] (-) TimerEvent: {}
+[2.816743] (-) TimerEvent: {}
+[2.917330] (-) TimerEvent: {}
+[3.017982] (-) TimerEvent: {}
+[3.118580] (-) TimerEvent: {}
+[3.219348] (-) TimerEvent: {}
+[3.320278] (-) TimerEvent: {}
+[3.421027] (-) TimerEvent: {}
+[3.519553] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.521273] (-) TimerEvent: {}
+[3.621983] (-) TimerEvent: {}
+[3.722720] (-) TimerEvent: {}
+[3.823448] (-) TimerEvent: {}
+[3.855961] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.880742] (arm_control_interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.881450] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.882221] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.909578] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.923732] (-) TimerEvent: {}
+[4.024434] (-) TimerEvent: {}
+[4.125248] (-) TimerEvent: {}
+[4.225973] (-) TimerEvent: {}
+[4.238441] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.266273] (arm_control_interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.267553] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.269048] (arm_control_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.285497] (arm_control_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[4.326277] (-) TimerEvent: {}
+[4.426992] (-) TimerEvent: {}
+[4.527700] (-) TimerEvent: {}
+[4.587532] (arm_control_interfaces) StdoutLine: {'line': b'-- Found Python3: /home/connor/robotics_projects/surgical-arm-ros2/venv/bin/python3 (found version "3.12.3") found components: Interpreter\n'}
+[4.627913] (-) TimerEvent: {}
+[4.728583] (-) TimerEvent: {}
+[4.826439] (arm_control_interfaces) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.7 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[4.828802] (-) TimerEvent: {}
+[4.929541] (-) TimerEvent: {}
+[5.030146] (-) TimerEvent: {}
+[5.131355] (-) TimerEvent: {}
+[5.232014] (-) TimerEvent: {}
+[5.332775] (-) TimerEvent: {}
+[5.433492] (-) TimerEvent: {}
+[5.475333] (arm_control_interfaces) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[5.504989] (arm_control_interfaces) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[5.533802] (-) TimerEvent: {}
+[5.555983] (arm_control_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.584353] (arm_control_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.633954] (-) TimerEvent: {}
+[5.647517] (arm_control_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[5.666705] (arm_control_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[5.734205] (-) TimerEvent: {}
+[5.834851] (-) TimerEvent: {}
+[5.935506] (-) TimerEvent: {}
+[6.036134] (-) TimerEvent: {}
+[6.136757] (-) TimerEvent: {}
+[6.237525] (-) TimerEvent: {}
+[6.258677] (arm_control_interfaces) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[6.259795] (arm_control_interfaces) StderrLine: {'line': b'  File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>\n'}
+[6.260158] (arm_control_interfaces) StderrLine: {'line': b'    from catkin_pkg.package import parse_package_string\n'}
+[6.260424] (arm_control_interfaces) StderrLine: {'line': b"ModuleNotFoundError: No module named 'catkin_pkg'\n"}
+[6.272724] (arm_control_interfaces) StderrLine: {'line': b'CMake Error at /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):\n'}
+[6.273068] (arm_control_interfaces) StderrLine: {'line': b'  \n'}
+[6.273153] (arm_control_interfaces) StderrLine: {'line': b'  execute_process(/home/connor/robotics_projects/surgical-arm-ros2/venv/bin/python3\n'}
+[6.273630] (arm_control_interfaces) StderrLine: {'line': b'  /opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py\n'}
+[6.273977] (arm_control_interfaces) StderrLine: {'line': b'  /home/connor/robotics_projects/surgical-arm-ros2/src/arm_control_interfaces/package.xml\n'}
+[6.274468] (arm_control_interfaces) StderrLine: {'line': b'  /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control_interfaces/ament_cmake_core/package.cmake)\n'}
+[6.274905] (arm_control_interfaces) StderrLine: {'line': b'  returned error code 1\n'}
+[6.275917] (arm_control_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[6.277151] (arm_control_interfaces) StderrLine: {'line': b'  /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)\n'}
+[6.277325] (arm_control_interfaces) StderrLine: {'line': b'  /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:220 (ament_package_xml)\n'}
+[6.277400] (arm_control_interfaces) StderrLine: {'line': b'  CMakeLists.txt:13 (rosidl_generate_interfaces)\n'}
+[6.277462] (arm_control_interfaces) StderrLine: {'line': b'\n'}
+[6.278019] (arm_control_interfaces) StderrLine: {'line': b'\n'}
+[6.278244] (arm_control_interfaces) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[6.298719] (arm_control_interfaces) CommandEnded: {'returncode': 1}
+[6.337892] (-) TimerEvent: {}
+[6.438646] (-) TimerEvent: {}
+[6.539330] (-) TimerEvent: {}
+[6.619490] (arm_control_interfaces) JobEnded: {'identifier': 'arm_control_interfaces', 'rc': 1}
+[6.630572] (-) EventReactorShutdown: {}

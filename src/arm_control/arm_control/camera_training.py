@@ -1,33 +1,25 @@
+import json
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Point, PoseArray, Pose
+from sensor_msgs.msg import Image
+from std_msgs.msg import String
 from visualization_msgs.msg import Marker
 
 import cv2 as cv
-import pyzed.sl as sl
 import numpy as np
 import open3d as o3d
 import sys
-import subprocess
-import signal
-from datetime import datetime
 import time
 
-from arm_control.utilities.ZED_bodytracking_34 import (
-    setup_body_tracking,
-    get_single_body,
-    get_arm_points,
-    draw_arm_points_and_lines,
-)
 import arm_control.utilities.rosbag_capture as rb
+
 
 class CameraTrainingNode(Node):
     def __init__(self):
         super().__init__('camera_training')
         
         # --- Configurations ---
-        self.arm_to_track = "left"  
-        self.alpha = 0.08
         self.rosbag_enabled = True  
         self.rosbag_folder = "training_bags"
 
@@ -40,8 +32,30 @@ class CameraTrainingNode(Node):
 
         # --- Publishers ---
         self.rviz_pub = self.create_publisher(Marker, 'camera/visualization', 10)
-        self.arm_pose_pub = self.create_publisher(PoseArray, 'camera/human_arm_pose', 10)
         self.normalized_hand_pub = self.create_publisher(Point, 'camera/normalized_hand_position', 10)
+        self.plane_req_pub = self.create_publisher(String, 'camera/get_plane/request', 10)
+
+        # --- Subscribers ---
+        self.image_sub = self.create_subscription(
+            Image,
+            'camera/image_raw',
+            self.image_callback,
+            10
+        )
+        
+        self.arm_pose_sub = self.create_subscription(
+            PoseArray,
+            'camera/human_arm_pose',
+            self.arm_pose_callback,
+            10
+        )
+
+        self.plane_res_sub = self.create_subscription(
+            String,
+            'camera/get_plane/response',
+            self.plane_response_callback,
+            10
+        )
 
         # --- Automation State Variables ---
         self.bag_process = None  
@@ -49,50 +63,87 @@ class CameraTrainingNode(Node):
         # --- Memory Arrays & States ---
         self.accumulated_points = []  
         self.plane_chunks = []         
-        self.clicked_pixel = None
         self.final_centroid = None  
         self.final_normal_vector = None  
         
+        # Camera intrinsics (received from service response)
+        self.fx = None
+        self.fy = None
+        self.cx = None
+        self.cy = None
+        
+        # Request tracker
+        self.last_request_id = None
+
         # Fixed Visual Artifact Buffers
         self.centroid_marker_msg = None
         self.mesh_marker_msg = None
         self.planes_marker_msg = None
         self.normal_marker_msg = None
         self.live_hand_marker_msg = None
-        
-        # --- ZED Hardware Interface Configuration ---
-        self.zed = sl.Camera()
-        init_params = sl.InitParameters()
-        init_params.camera_resolution = sl.RESOLUTION.VGA 
-        init_params.camera_fps = 15
-        init_params.depth_mode = sl.DEPTH_MODE.NEURAL
-        init_params.coordinate_units = sl.UNIT.METER
-        init_params.coordinate_system = sl.COORDINATE_SYSTEM.RIGHT_HANDED_Z_UP 
-        
-        self.get_logger().info("Establishing links with ZED 2i hardware channels...")
-        if self.zed.open(init_params) != sl.ERROR_CODE.SUCCESS:
-            self.get_logger().error("Failed to open ZED camera interface!")
-            sys.exit(1)
+        self.live_text_marker = None
+        self.live_hand_marker = None
 
-        self.zed.enable_positional_tracking(sl.PositionalTrackingParameters())
-        
-        # Extract Intrinsics
-        cam_info = self.zed.get_camera_information()
-        cam_params = cam_info.camera_configuration.calibration_parameters.left_cam
-        self.fx, self.fy = cam_params.fx, cam_params.fy
-        self.cx, self.cy = cam_params.cx, cam_params.cy
-        
-        # Body Tracking Setup
-        self.body_runtime = setup_body_tracking(self.zed)
-        self.image = sl.Mat()
-        self.bodies = sl.Bodies()
-        self.runtime = sl.RuntimeParameters()
+        # Setup GUI Window
+        self.window_name = "ZED 2i Tracking & Calibration"
+        cv.namedWindow(self.window_name)
+        cv.setMouseCallback(self.window_name, self.mouse_callback)
+        self.get_logger().info("UI Window initialized. Listening to zed_driver topics (JSON Mode)...")
 
     def mouse_callback(self, event, x, y, flags, param):
         if event == cv.EVENT_LBUTTONDOWN:
-            self.clicked_pixel = [x, y]
+            if self.final_centroid is None:
+                self.get_logger().info(f"Screen clicked. Requesting plane at: ({x}, {y})")
+                self.request_plane_at_point(x, y)
+
+    def request_plane_at_point(self, x, y):
+        req_id = f"req_{time.time_ns()}"
+        self.last_request_id = req_id
+
+        req_data = {
+            "x": int(x),
+            "y": int(y),
+            "request_id": req_id
+        }
+
+        msg = String(data=json.dumps(req_data))
+        self.plane_req_pub.publish(msg)
+
+    def plane_response_callback(self, msg):
+        try:
+            data = json.loads(msg.data)
+            req_id = data.get("request_id")
+        except Exception as e:
+            self.get_logger().error(f"Failed to parse plane response JSON: {e}")
+            return
+
+        if req_id != self.last_request_id:
+            # Ignore responses for older clicks
+            return
+
+        if data.get("success"):
+            self.fx = data["fx"]
+            self.fy = data["fy"]
+            self.cx = data["cx"]
+            self.cy = data["cy"]
+
+            # Append boundary vertices to memory
+            current_chunk = []
+            for pt in data["boundary_points"]:
+                self.accumulated_points.append(pt)
+                current_chunk.append(pt)
+
+            if len(current_chunk) > 0:
+                self.plane_chunks.append(current_chunk)
+                self.get_logger().info(f"Registered new plane segment with {len(current_chunk)} bounds.")
+        else:
+            self.get_logger().warn("Driver failed to extract plane geometry at clicked coordinates.")
 
     def process_and_update_mesh(self):
+        if len(self.accumulated_points) < 3:
+            self.get_logger().warn("Cannot compute surface plane: Not enough points collected yet!")
+            return
+
         pcd = o3d.geometry.PointCloud()
         pcd.points = o3d.utility.Vector3dVector(np.array(self.accumulated_points))
         
@@ -112,6 +163,8 @@ class CameraTrainingNode(Node):
             
         self.final_normal_vector = np.asarray(stitched_mesh.compute_triangle_normals().triangle_normals).mean(axis=0)
         self.final_centroid = centroid_sum / total_area if total_area > 0 else pcd.get_center()
+
+        self.get_logger().info(f"Surface centroid established: Centroid={self.final_centroid}, Normal={self.final_normal_vector}")
 
         # Build Marker ID 0: Surface Centroid (Blue Ball)
         self.centroid_marker_msg = Marker()
@@ -206,130 +259,97 @@ class CameraTrainingNode(Node):
             self.rviz_pub.publish(del_msg)
         self.centroid_marker_msg = self.mesh_marker_msg = self.planes_marker_msg = self.live_hand_marker_msg = self.final_centroid = self.normal_marker_msg = None
 
-    def start_processing_loop(self):
-        window_name = "ZED 2i Tracking & Calibration"
-        cv.namedWindow(window_name)
-        cv.setMouseCallback(window_name, self.mouse_callback)
+    def image_callback(self, msg):
+        # Package raw bytes directly back to OpenCV image array
+        if msg.encoding != "bgr8":
+            self.get_logger().error(f"Image encoding error: Expected bgr8, received: '{msg.encoding}'")
+            return
 
-        while rclpy.ok():
-            #make sure cameras on
-            if self.zed.grab(self.runtime) != sl.ERROR_CODE.SUCCESS:
-                continue
-            #grab frame
-            self.zed.retrieve_image(self.image, sl.VIEW.LEFT)
-            frame = self.image.get_data()
-            if frame.shape[2] == 4:
-                frame = cv.cvtColor(frame, cv.COLOR_BGRA2BGR)
-            # if clicked
-            if self.clicked_pixel is not None and self.final_centroid is None:
-                plane = sl.Plane()
-                if self.zed.find_plane_at_hit(self.clicked_pixel, plane) == sl.ERROR_CODE.SUCCESS:
-                    bounds = plane.get_bounds()
-                    current_chunk = []
-                    for pt in bounds:
-                        self.accumulated_points.append([pt[0], pt[1], pt[2]])
-                        current_chunk.append([pt[0], pt[1], pt[2]])
-                    if len(current_chunk) > 0:
-                        self.plane_chunks.append(current_chunk)
-                self.clicked_pixel = None
+        frame = np.frombuffer(msg.data, dtype=np.uint8).reshape((msg.height, msg.width, 3)).copy()
 
-            if self.final_centroid is None:
-                for chunk in self.plane_chunks:
-                    poly_pixels = []
-                    for pt in chunk:
-                        if pt[1] > 0:
-                            poly_pixels.append([int((pt[0]*self.fx)/pt[1] + self.cx), int((-pt[2]*self.fy)/pt[1] + self.cy)])
-                    if len(poly_pixels) > 2:
-                        cv.fillPoly(frame, [np.array(poly_pixels, dtype=np.int32)], (0, 180, 0))
+        # Project boundary lines onto live screen feed
+        if self.final_centroid is None and self.fx is not None:
+            for chunk in self.plane_chunks:
+                poly_pixels = []
+                for pt in chunk:
+                    if pt[1] > 0.01:
+                        # 3D coordinates projected via intrinsics to pixel space
+                        u = int((pt[0] * self.fx) / pt[1] + self.cx)
+                        v = int((-pt[2] * self.fy) / pt[1] + self.cy)
+                        poly_pixels.append([u, v])
+                if len(poly_pixels) > 2:
+                    cv.fillPoly(frame, [np.array(poly_pixels, dtype=np.int32)], (0, 180, 0))
 
-            # Extract and Publish Arm Pose Data if Centroid is Established
-            if self.final_centroid is not None:
-                self.zed.retrieve_bodies(self.bodies, self.body_runtime)
-                body = get_single_body(self.bodies, mode="closest")
+        # Show frame
+        cv.imshow(self.window_name, frame)
+        
+        # User input hooks
+        key = cv.waitKey(1) & 0xFF
+        if key == ord('q'):  
+            self.accumulated_points = []
+            self.plane_chunks = []
+            self.send_rviz_delete_markers()
+            self.get_logger().info("Mesh memory and visuals cleared.")
+            if self.rosbag_enabled and self.bag_process is not None:
+                rb.stop_rosbag_recording(self.bag_process)
+                self.bag_process = None
+        elif key == ord('s'):
+            if self.rosbag_enabled:
+                self.bag_process = rb.start_rosbag_recording(self.topics_to_record, self.rosbag_folder)
+                time.sleep(1)
+            self.process_and_update_mesh()
 
-                if body is not None:
-                    latest_arm_data = get_arm_points(body, arm=self.arm_to_track)
-                    if latest_arm_data is not None:
-                        frame = draw_arm_points_and_lines(frame, latest_arm_data)
-                        
-                        sh_xyz = latest_arm_data["shoulder_3d"]
-                        el_xyz = latest_arm_data["elbow_3d"]
-                        wr_xyz = latest_arm_data["wrist_3d"]
-                        hd_xyz = latest_arm_data["hand_3d"]
-                        
-                        pose_msg = PoseArray()
-                        pose_msg.header.stamp = self.get_clock().now().to_msg()
-                        pose_msg.header.frame_id = "zed_camera_frame"
-                        for joint in [sh_xyz, el_xyz, wr_xyz, hd_xyz]:
-                            p = Pose()
-                            p.position.x, p.position.y, p.position.z = float(joint[0]), float(joint[1]), float(joint[2])
-                            pose_msg.poses.append(p)
-                        self.arm_pose_pub.publish(pose_msg)
+    def arm_pose_callback(self, msg):
+        if self.final_centroid is not None and len(msg.poses) >= 4:
+            # Joint index map: [Shoulder=0, Elbow=1, Wrist=2, Hand=3]
+            hd_pose = msg.poses[3]
+            hd_xyz = [hd_pose.position.x, hd_pose.position.y, hd_pose.position.z]
 
-                        # --- COORD TRANSFORM SUBTRACTION ---
-                        norm_x = hd_xyz[0] - self.final_centroid[0]
-                        norm_y = hd_xyz[1] - self.final_centroid[1]
-                        norm_z = hd_xyz[2] - self.final_centroid[2]
-                        
-                        norm_hand_msg = Point(x=float(norm_x), y=float(norm_y), z=float(norm_z))
-                        self.normalized_hand_pub.publish(norm_hand_msg)
-
-                        # Build Live Hand Tracking Dot
-                        hand_m = Marker()
-                        hand_m.header.frame_id = "zed_camera_frame"
-                        hand_m.ns = "hand_position"
-                        hand_m.id = 3
-                        hand_m.type = Marker.SPHERE
-                        hand_m.action = Marker.ADD
-                        hand_m.pose.position.x = float(hd_xyz[0])
-                        hand_m.pose.position.y = float(hd_xyz[1])
-                        hand_m.pose.position.z = float(hd_xyz[2])
-                        hand_m.pose.orientation.w = 1.0
-                        hand_m.scale.x = hand_m.scale.y = hand_m.scale.z = 0.04  
-                        hand_m.color.r, hand_m.color.g, hand_m.color.b, hand_m.color.a = 1.0, 0.0, 1.0, 1.0
-                        self.live_hand_marker = hand_m
-
-                        # Build Floating Dynamic Coordinate Text Tag
-                        text_m = Marker()
-                        text_m.header.frame_id = "zed_camera_frame"
-                        text_m.ns = "hand_coordinates"
-                        text_m.id = 4
-                        text_m.type = Marker.TEXT_VIEW_FACING
-                        text_m.action = Marker.ADD
-                        text_m.pose.position.x = float(hd_xyz[0])
-                        text_m.pose.position.y = float(hd_xyz[1])
-                        text_m.pose.position.z = float(hd_xyz[2]) + 0.08  
-                        text_m.pose.orientation.w = 1.0
-                        text_m.scale.z = 0.035  
-                        text_m.color.r, text_m.color.g, text_m.color.b, text_m.color.a = 1.0, 1.0, 1.0, 1.0  
-                        text_m.text = f"Rel: [{norm_x:.2f}, {norm_y:.2f}, {norm_z:.2f}]"
-                        self.live_text_marker = text_m
-                        
-                        now = self.get_clock().now().to_msg()
-                        if self.live_hand_marker is not None and self.live_text_marker is not None:
-                            self.live_hand_marker.header.stamp = now
-                            self.live_text_marker.header.stamp = now
-                            self.rviz_pub.publish(self.live_hand_marker)
-                            self.rviz_pub.publish(self.live_text_marker)
-
-            cv.imshow(window_name, frame)
+            # --- COORD TRANSFORM SUBTRACTION ---
+            norm_x = hd_xyz[0] - self.final_centroid[0]
+            norm_y = hd_xyz[1] - self.final_centroid[1]
+            norm_z = hd_xyz[2] - self.final_centroid[2]
             
-            key = cv.waitKey(10) & 0xFF
-            if key == ord('q'):  
-                self.accumulated_points = []
-                self.plane_chunks = []
-                self.send_rviz_delete_markers()
-                self.get_logger().info("Mesh memory and visuals cleared.")
-                if self.rosbag_enabled and self.bag_process is not None:
-                    rb.stop_rosbag_recording(self.bag_process)
-                    self.bag_process = None
-            elif key == ord('s'):
-                if self.rosbag_enabled:
-                    self.bag_process = rb.start_rosbag_recording(self.topics_to_record, self.rosbag_folder)
-                    time.sleep(1)
-                self.process_and_update_mesh()
+            norm_hand_msg = Point(x=float(norm_x), y=float(norm_y), z=float(norm_z))
+            self.normalized_hand_pub.publish(norm_hand_msg)
 
-        cv.destroyAllWindows()
+            # Build Live Hand Tracking Dot
+            hand_m = Marker()
+            hand_m.header.frame_id = "zed_camera_frame"
+            hand_m.ns = "hand_position"
+            hand_m.id = 3
+            hand_m.type = Marker.SPHERE
+            hand_m.action = Marker.ADD
+            hand_m.pose.position.x = float(hd_xyz[0])
+            hand_m.pose.position.y = float(hd_xyz[1])
+            hand_m.pose.position.z = float(hd_xyz[2])
+            hand_m.pose.orientation.w = 1.0
+            hand_m.scale.x = hand_m.scale.y = hand_m.scale.z = 0.04  
+            hand_m.color.r, hand_m.color.g, hand_m.color.b, hand_m.color.a = 1.0, 0.0, 1.0, 1.0
+            self.live_hand_marker = hand_m
+
+            # Build Floating Dynamic Coordinate Text Tag
+            text_m = Marker()
+            text_m.header.frame_id = "zed_camera_frame"
+            text_m.ns = "hand_coordinates"
+            text_m.id = 4
+            text_m.type = Marker.TEXT_VIEW_FACING
+            text_m.action = Marker.ADD
+            text_m.pose.position.x = float(hd_xyz[0])
+            text_m.pose.position.y = float(hd_xyz[1])
+            text_m.pose.position.z = float(hd_xyz[2]) + 0.08  
+            text_m.pose.orientation.w = 1.0
+            text_m.scale.z = 0.035  
+            text_m.color.r, text_m.color.g, text_m.color.b, text_m.color.a = 1.0, 1.0, 1.0, 1.0  
+            text_m.text = f"Rel: [{norm_x:.2f}, {norm_y:.2f}, {norm_z:.2f}]"
+            self.live_text_marker = text_m
+            
+            now = self.get_clock().now().to_msg()
+            if self.live_hand_marker is not None and self.live_text_marker is not None:
+                self.live_hand_marker.header.stamp = now
+                self.live_text_marker.header.stamp = now
+                self.rviz_pub.publish(self.live_hand_marker)
+                self.rviz_pub.publish(self.live_text_marker)
 
     def publish_rviz_artifacts(self):
         now = self.get_clock().now().to_msg()
@@ -351,20 +371,22 @@ class CameraTrainingNode(Node):
     def cleanup(self):
         if self.bag_process is not None:
             rb.stop_rosbag_recording(self.bag_process)
-        self.get_logger().info("Safely closing ZED peripheral hardware hooks.")
-        self.zed.close()
+        cv.destroyAllWindows()
+        self.get_logger().info("UI Window safely terminated.")
+
 
 def main(args=None):
     rclpy.init(args=args)
     node = CameraTrainingNode()
     try:
-        node.start_processing_loop()
+        rclpy.spin(node)
     except KeyboardInterrupt:
         pass
     finally:
         node.cleanup()
         node.destroy_node()
         rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()

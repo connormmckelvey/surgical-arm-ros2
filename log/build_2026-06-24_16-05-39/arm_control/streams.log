@@ -1,0 +1,109 @@
+[2.568s] Invoking command in '/home/connor/robotics_projects/surgical-arm-ros2/src/arm_control': AMENT_PREFIX_PATH=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_control build --build-base /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build install --record /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log --single-version-externally-managed install_data
+[2.988s] running egg_info
+[2.988s] creating ../../build/arm_control/arm_control.egg-info
+[3.010s] writing ../../build/arm_control/arm_control.egg-info/PKG-INFO
+[3.010s] writing dependency_links to ../../build/arm_control/arm_control.egg-info/dependency_links.txt
+[3.011s] writing entry points to ../../build/arm_control/arm_control.egg-info/entry_points.txt
+[3.012s] writing requirements to ../../build/arm_control/arm_control.egg-info/requires.txt
+[3.012s] writing top-level names to ../../build/arm_control/arm_control.egg-info/top_level.txt
+[3.013s] writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+[3.095s] reading manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+[3.095s] adding license file 'LICENSE'
+[3.097s] writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+[3.098s] running build
+[3.099s] running build_py
+[3.099s] creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build
+[3.100s] creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib
+[3.101s] creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.102s] copying arm_control/lerobot_sim.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.103s] copying arm_control/force_sensor.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.103s] copying arm_control/zed_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.103s] copying arm_control/lerobot_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.104s] copying arm_control/lerobot_motionplan.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.104s] copying arm_control/camera_execution.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.105s] copying arm_control/training_transformer.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.106s] copying arm_control/camera_training.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.107s] copying arm_control/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.107s] copying arm_control/teleop_transformer.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[3.108s] creating /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.108s] copying arm_control/utilities/RR_IK.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.109s] copying arm_control/utilities/tool.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.109s] copying arm_control/utilities/jacobian_transpose.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.109s] copying arm_control/utilities/rosbag_capture.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.110s] copying arm_control/utilities/jacobian.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.111s] copying arm_control/utilities/so3.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.111s] copying arm_control/utilities/ZED_objectdetection.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.112s] copying arm_control/utilities/fk.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.112s] copying arm_control/utilities/ZED_bodytracking_18.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.113s] copying arm_control/utilities/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.114s] copying arm_control/utilities/ZED_planedetection.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.114s] copying arm_control/utilities/se3.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.115s] copying arm_control/utilities/ZED_bodytracking_34.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities
+[3.116s] running install
+[3.132s] running install_lib
+[3.199s] creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.200s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/lerobot_sim.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.201s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/force_sensor.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.201s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/zed_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.202s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/lerobot_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.202s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/lerobot_motionplan.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.203s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/camera_execution.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.203s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/training_transformer.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.203s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/camera_training.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.204s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.205s] creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.206s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/RR_IK.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.213s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/tool.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.214s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/jacobian_transpose.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.214s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/rosbag_capture.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.214s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/jacobian.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.214s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/so3.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.215s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/ZED_objectdetection.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.215s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/fk.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.215s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/ZED_bodytracking_18.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.215s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/__init__.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.216s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/ZED_planedetection.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.217s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/se3.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.218s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/utilities/ZED_bodytracking_34.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities
+[3.219s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/teleop_transformer.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[3.220s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_sim.py to lerobot_sim.cpython-312.pyc
+[3.225s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/force_sensor.py to force_sensor.cpython-312.pyc
+[3.230s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/zed_driver.py to zed_driver.cpython-312.pyc
+[3.234s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_driver.py to lerobot_driver.cpython-312.pyc
+[3.236s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/lerobot_motionplan.py to lerobot_motionplan.cpython-312.pyc
+[3.240s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/camera_execution.py to camera_execution.cpython-312.pyc
+[3.241s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/training_transformer.py to training_transformer.cpython-312.pyc
+[3.243s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/camera_training.py to camera_training.cpython-312.pyc
+[3.249s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/__init__.py to __init__.cpython-312.pyc
+[3.250s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/RR_IK.py to RR_IK.cpython-312.pyc
+[3.252s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/tool.py to tool.cpython-312.pyc
+[3.253s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/jacobian_transpose.py to jacobian_transpose.cpython-312.pyc
+[3.255s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/rosbag_capture.py to rosbag_capture.cpython-312.pyc
+[3.256s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/jacobian.py to jacobian.cpython-312.pyc
+[3.258s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/so3.py to so3.cpython-312.pyc
+[3.261s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/ZED_objectdetection.py to ZED_objectdetection.cpython-312.pyc
+[3.262s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/fk.py to fk.cpython-312.pyc
+[3.264s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/ZED_bodytracking_18.py to ZED_bodytracking_18.cpython-312.pyc
+[3.270s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/__init__.py to __init__.cpython-312.pyc
+[3.270s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/ZED_planedetection.py to ZED_planedetection.cpython-312.pyc
+[3.273s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/se3.py to se3.cpython-312.pyc
+[3.275s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/utilities/ZED_bodytracking_34.py to ZED_bodytracking_34.cpython-312.pyc
+[3.281s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/teleop_transformer.py to teleop_transformer.cpython-312.pyc
+[3.283s] running install_data
+[3.284s] creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index
+[3.285s] creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index/resource_index
+[3.285s] creating /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index/resource_index/packages
+[3.285s] copying resource/arm_control -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/ament_index/resource_index/packages
+[3.285s] copying package.xml -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/arm_control
+[3.286s] running install_egg_info
+[3.310s] Copying ../../build/arm_control/arm_control.egg-info to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info
+[3.312s] running install_scripts
+[3.510s] Installing camera_training script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[3.511s] Installing force_sensor script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[3.511s] Installing lerobot_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[3.512s] Installing lerobot_motionplan script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[3.512s] Installing lerobot_sim script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[3.513s] Installing teleop_transformer script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[3.514s] Installing zed_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[3.514s] writing list of installed files to '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log'
+[3.578s] Invoked command in '/home/connor/robotics_projects/surgical-arm-ros2/src/arm_control' returned '0': AMENT_PREFIX_PATH=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control_interfaces/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_control build --build-base /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build install --record /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log --single-version-externally-managed install_data
