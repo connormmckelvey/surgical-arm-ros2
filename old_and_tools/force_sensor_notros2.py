@@ -1,5 +1,7 @@
-from haplink import Haplink, DataType
+# Latest version
+#pip install git+https://github.com/connormmckelvey/Haplink.git#subdirectory=python
 
+from haplink import Haplink, DataType
 
 class ForceSensor():
     def __init__(self):
