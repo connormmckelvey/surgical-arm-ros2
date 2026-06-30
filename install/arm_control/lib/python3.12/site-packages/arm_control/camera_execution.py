@@ -21,6 +21,7 @@ class CameraExecutionNode(Node):
         self.rviz_pub = self.create_publisher(Marker, 'camera/visualization', 10)
         self.normalized_hand_pub = self.create_publisher(Point, 'camera/normalized_hand_position', 10)
         self.plane_req_pub = self.create_publisher(String, 'camera/get_plane/request', 10)
+        self.centroid_pub = self.create_publisher(Point, 'camera/execution_centroid', 10)
 
         # --- Subscribers ---
         self.image_sub = self.create_subscription(
@@ -149,6 +150,14 @@ class CameraExecutionNode(Node):
         self.final_centroid = centroid_sum / total_area if total_area > 0 else pcd.get_center()
 
         self.get_logger().info(f"Surface centroid established: Centroid={self.final_centroid}, Normal={self.final_normal_vector}")
+
+        # Publish centroid for calibration / playback
+        centroid_msg = Point()
+        centroid_msg.x = float(self.final_centroid[0])
+        centroid_msg.y = float(self.final_centroid[1])
+        centroid_msg.z = float(self.final_centroid[2])
+        self.centroid_pub.publish(centroid_msg)
+        self.get_logger().info("Published execution centroid on camera/execution_centroid")
 
         # Build Marker ID 0: Surface Centroid (Blue Ball)
         self.centroid_marker_msg = Marker()

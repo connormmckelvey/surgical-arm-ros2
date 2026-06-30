@@ -17,10 +17,20 @@ graph TD
     Hap[HX711 Arduino Board] -->|Serial/Haplink| ForceNode[force_sensor]
     
     %% Decoupled Sensor Streams
-    ZedDriver -->|camera/image_raw <br> Image| CamNode[camera_training / camera_execution]
+    ZedDriver -->|camera/image_raw <br> Image| CamNode[camera_training / camera_playback]
     ZedDriver -->|camera/human_arm_pose <br> PoseArray| CamNode
     ZedDriver -->|camera/human_arm_pose <br> PoseArray| TransNode[teleop_transformer]
+    ZedDriver -->|camera/tag_pose <br> PoseStamped| CalibNode[eye_to_hand_calibration]
     CamNode <-->|JSON Request/Response <br> String| ZedDriver
+    
+    %% Calibration Data Flow
+    DriverNode -->|/arm/current_joint_angles <br> Float32MultiArray| CalibNode
+    CalibNode -->|Writes matrix| CalibJson[calibration.json]
+    
+    %% Playback Data Flow
+    BagPlayer[rosbag2 Player] -->|camera/normalized_hand_position <br> Point| PlaybackTrans[playback_transformer]
+    CamNode -->|camera/execution_centroid <br> Point| PlaybackTrans
+    CalibJson -->|Loads matrix| PlaybackTrans
     
     %% Processing & Transform Layer
     CamNode -->|camera/normalized_hand_position <br> Point| BagRecord[rosbag2 Recorder]
@@ -28,6 +38,7 @@ graph TD
     
     %% Target Pose Generation
     TransNode -->|/arm/target_cartesian_pose <br> Point| Planner[lerobot_motionplan]
+    PlaybackTrans -->|/arm/target_cartesian_pose <br> Point| Planner
     
     %% Kinematic Core & Driver Layer
     Planner -->|/arm/target_joint_angles <br> Float32MultiArray| DriverNode[lerobot_driver / lerobot_sim]
@@ -36,6 +47,8 @@ graph TD
     %% Visualizations
     CamNode -->|camera/visualization <br> Marker| RViz[RViz2 Debugger]
     DriverNode -->|/arm/simulated_hardware_mesh <br> Marker| RViz
+    TransNode -->|/arm/target_pose_marker <br> Marker| RViz
+    PlaybackTrans -->|/arm/target_pose_marker <br> Marker| RViz
 ```
 
 ---
@@ -72,9 +85,9 @@ graph TD
   * `camera/normalized_hand_position` (`geometry_msgs/msg/Point`)
   * `camera/get_plane/request` (`std_msgs/msg/String`)
 
-### `camera_execution`
-* **Source:** [camera_execution.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/camera_execution.py)
-* **Description:** Teleoperation client mirroring the training interface, mapping human gestures to active workspace commands.
+### `camera_playback`
+* **Source:** [camera_playback.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/camera_playback.py)
+* **Description:** User interface to segment surfaces, select the execution centroid, and display coordinate offsets during playback.
 * **Subscribers:**
   * `camera/image_raw` (`sensor_msgs/msg/Image`)
   * `camera/human_arm_pose` (`geometry_msgs/msg/PoseArray`)
@@ -83,6 +96,7 @@ graph TD
   * `camera/visualization` (`visualization_msgs/msg/Marker`)
   * `camera/normalized_hand_position` (`geometry_msgs/msg/Point`)
   * `camera/get_plane/request` (`std_msgs/msg/String`)
+  * `camera/execution_centroid` (`geometry_msgs/msg/Point`)
 
 ### `teleop_transformer`
 * **Source:** [teleop_transformer.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/teleop_transformer.py) / [training_transformer.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/training_transformer.py)
@@ -141,6 +155,31 @@ graph TD
 * **Services:**
   * `force_sensor/tare` (`std_srvs/srv/Trigger`): Recalculates zero-load offset.
   * `force_sensor/calibrate` (`std_srvs/srv/Trigger`): Dynamically sets scaling factors using a standard calibration weight (default: 200g).
+
+### `eye_to_hand_calibration`
+* **Source:** [eye_to_hand_calibration.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/eye_to_hand_calibration.py)
+* **Description:** Performs camera-to-robot coordinate frame calibration using ArUco board readings.
+* **Key Tasks:**
+  * Collects 20 synchronized samples of the ArUco board pose from the camera and joint angles from the robot driver.
+  * Runs forward kinematics to get the end-effector pose, maps the tag offset, and transforms the board pose to ZED Z-UP coordinates.
+  * Solves for the camera-to-robot transform $T_R^C$ and writes the result to `calibration.json`.
+* **Subscribers:**
+  * `camera/tag_pose` (`geometry_msgs/msg/PoseStamped`)
+  * `/arm/current_joint_angles` (`std_msgs/msg/Float32MultiArray`)
+
+### `playback_transformer`
+* **Source:** [playback_transformer.py](file:///home/connor/robotics_projects/surgical-arm-ros2/src/arm_control/arm_control/playback_transformer.py)
+* **Description:** Reads played back rosbag coordinate offsets and maps them relative to a selected target object.
+* **Key Tasks:**
+  * Loads the $T_R^C$ transform matrix from `calibration.json`.
+  * Combines the runtime-selected execution centroid with recorded hand movement vectors.
+  * Transforms and clips the final target coordinates, then publishes them to the motion planner.
+* **Subscribers:**
+  * `camera/execution_centroid` (`geometry_msgs/msg/Point`)
+  * `camera/normalized_hand_position` (`geometry_msgs/msg/Point`)
+* **Publishers:**
+  * `/arm/target_cartesian_pose` (`geometry_msgs/msg/Point`)
+  * `/arm/target_pose_marker` (`visualization_msgs/msg/Marker`)
 
 ---
 
@@ -212,12 +251,57 @@ colcon build
 source install/setup.bash
 ```
 
-### Running Simulated Teleoperation & Debugging
-Run the following commands in separate terminals to spin up the simulation workspace:
+### Running with Launch Files (Recommended)
 
-1. **Launch Simulated Driver:**
+Instead of launching nodes in separate terminals, you can spin up the entire pipeline with a single command. 
+
+Both launch files support a `sim` argument (defaults to `false`). Pass `sim:=true` to run the Rviz simulation mock instead of connecting to physical hardware over USB.
+
+#### A. Run Active Live Mirroring
+1. **Launch mirroring stack:**
    ```bash
-   ros2 run arm_control lerobot_sim
+   ros2 launch arm_control teleop.launch.py sim:=true
+   ```
+2. **Launch RViz Visualizer:**
+   ```bash
+   rviz2
+   ```
+
+#### B. Run Autonomous Playback
+1. **Launch playback pipeline:**
+   ```bash
+   ros2 launch arm_control playback.launch.py sim:=true
+   ```
+2. **Launch RViz Visualizer:**
+   ```bash
+   rviz2
+   ```
+3. **Play Demonstration Rosbag:**
+   ```bash
+   ros2 bag play training_bags/training_episode_20260622_174229/
+   ```
+
+#### C. Run Live Training (Recording)
+Starts only the camera driver, force sensor, and training UI node for data recording:
+1. **Launch training pipeline:**
+   ```bash
+   ros2 launch arm_control training.launch.py
+   ```
+2. **Launch RViz Visualizer:**
+   ```bash
+   rviz2
+   ```
+
+---
+
+### Running Nodes Individually (Manual Method)
+If you prefer to run the nodes manually in separate terminals:
+
+1. **Launch Driver (Hardware or Simulation):**
+   ```bash
+   ros2 run arm_control lerobot_sim  # Sim
+   # or
+   ros2 run arm_control lerobot_driver  # Hardware
    ```
 2. **Launch ZED Camera Driver:**
    ```bash
@@ -227,19 +311,17 @@ Run the following commands in separate terminals to spin up the simulation works
    ```bash
    ros2 run arm_control lerobot_motionplan
    ```
-4. **Launch Teleop Coordinate Transformer:**
+4. **Launch Coordinate Transformer:**
    ```bash
-   ros2 run arm_control teleop_transformer
+   ros2 run arm_control teleop_transformer  # For Live Teleop
+   # or
+   ros2 run arm_control playback_transformer  # For Playback
    ```
-5. **Launch Application UI (Training or Execution):**
+5. **Launch Application UI:**
    ```bash
-   ros2 run arm_control camera_training
+   ros2 run arm_control camera_playback
    ```
 6. **Launch RViz Visualizer:**
    ```bash
    rviz2
-   ```
-7. **Play Demonstration Rosbag:**
-   ```bash
-   ros2 bag play training_bags/training_episode_20260622_174229/
    ```

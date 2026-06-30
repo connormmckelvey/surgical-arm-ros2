@@ -10,14 +10,15 @@ setup.py
 ../../build/arm_control/arm_control.egg-info/top_level.txt
 ../../build/arm_control/arm_control.egg-info/zip-safe
 arm_control/__init__.py
-arm_control/camera_execution.py
+arm_control/camera_playback.py
 arm_control/camera_training.py
+arm_control/eye_to_hand_calibration.py
 arm_control/force_sensor.py
 arm_control/lerobot_driver.py
 arm_control/lerobot_motionplan.py
 arm_control/lerobot_sim.py
+arm_control/playback_transformer.py
 arm_control/teleop_transformer.py
-arm_control/training_transformer.py
 arm_control/zed_driver.py
 arm_control/utilities/RR_IK.py
 arm_control/utilities/ZED_bodytracking_18.py
@@ -32,6 +33,9 @@ arm_control/utilities/rosbag_capture.py
 arm_control/utilities/se3.py
 arm_control/utilities/so3.py
 arm_control/utilities/tool.py
+launch/playback.launch.py
+launch/teleop.launch.py
+launch/training.launch.py
 resource/arm_control
 test/test_copyright.py
 test/test_flake8.py

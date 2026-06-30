@@ -1,0 +1,73 @@
+[0.000000] (-) TimerEvent: {}
+[0.002268] (arm_control) JobQueued: {'identifier': 'arm_control', 'dependencies': OrderedDict()}
+[0.002997] (arm_control) JobStarted: {'identifier': 'arm_control'}
+[0.098557] (-) TimerEvent: {}
+[0.199219] (-) TimerEvent: {}
+[0.299900] (-) TimerEvent: {}
+[0.400669] (-) TimerEvent: {}
+[0.501641] (-) TimerEvent: {}
+[0.607653] (-) TimerEvent: {}
+[0.708425] (-) TimerEvent: {}
+[0.809196] (-) TimerEvent: {}
+[0.909997] (-) TimerEvent: {}
+[1.010725] (-) TimerEvent: {}
+[1.111405] (-) TimerEvent: {}
+[1.212048] (-) TimerEvent: {}
+[1.312836] (-) TimerEvent: {}
+[1.413577] (-) TimerEvent: {}
+[1.514302] (-) TimerEvent: {}
+[1.614994] (-) TimerEvent: {}
+[1.715809] (-) TimerEvent: {}
+[1.816593] (-) TimerEvent: {}
+[1.917234] (-) TimerEvent: {}
+[2.017981] (-) TimerEvent: {}
+[2.118739] (-) TimerEvent: {}
+[2.142832] (arm_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/arm_control', 'build', '--build-base', '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build', 'install', '--record', '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/connor/robotics_projects/surgical-arm-ros2/src/arm_control', 'env': {'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'connor', 'ANTIGRAVITY_SOURCE_METADATA': '{"tool":{"conversationId":"3e3d433a-9f90-4798-a375-472db16b0f68", "stepIndex":151, "toolCall":{"id":"e3klksn4", "name":"run_command", "argumentsJson":"{\\"CommandLine\\":\\"source venv/bin/activate \\\\u0026\\\\u0026 colcon build\\",\\"Cwd\\":\\"/home/connor/robotics_projects/surgical-arm-ros2\\",\\"WaitMsBeforeAsync\\":10000,\\"toolAction\\":\\"Rebuilding ROS 2 workspace\\",\\"toolSummary\\":\\"Run command\\"}", "thinkingSignature":"EpYBCpMBAQw51sfDCbySou3av57qedRmcJLTr958oRasjpdbFc5cVepfFn7A6aC5If3+hEB/UZr8s7g67MrLGIjXSiLCeNqWJ6hA0GEokcQP6mNGzpcsvUhlTS809FsLNc9dxoRQEWSgTaUvJ/rCVuwQfrv9OYwXwXHssQGxg6fwk1yr0qX2P4nzgVBB++gysH5iZniPZVh3", "originalName":"run_command"}}}', 'GIT_ASKPASS': '/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/connor', 'OLDPWD': '/home/connor/robotics_projects/surgical-arm-ros2', 'TERM_PROGRAM_VERSION': '1.126.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-de973dea-c4e6-4191-a946-d1b38e334b69.sock', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'VSCODE_GIT_ASKPASS_MAIN': '/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/extensions/git/dist/askpass-main.js', 'PS1': '(venv)', 'VSCODE_GIT_ASKPASS_NODE': '/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/connor/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'ANTIGRAVITY_AGENT': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/connor/robotics_projects/surgical-arm-ros2/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'connor', 'NAME': 'ConnorsProArt', 'WSL_INTEROP': '/run/WSL/572_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'dumb', 'PATH': '/home/connor/robotics_projects/surgical-arm-ros2/venv/bin:/home/connor/.gemini/antigravity-cli/bin:/home/connor/robotics_projects/surgical-arm-ros2/venv/bin:/home/connor/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/connor/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/connor/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/bin/remote-cli:/home/connor/.local/bin:/home/connor/.local/bin:/home/connor/.local/bin:/home/connor/robotics_projects/surgical-arm-ros2/venv/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.8.9-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/cursor/resources/app/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/conno/AppData/Local/agy/bin:/mnt/c/Users/conno/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/conno/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/conno/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/conno/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/conno/AppData/Roaming/npm:/mnt/c/Users/conno/AppData/Local/Python/bin:/mnt/c/msys64/ucrt64/bin:/snap/bin:/home/connor/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/connor/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-906e66aec29386df.txt', 'LANG': 'C.UTF-8', 'PYTHONSTARTUP': '/home/connor/.vscode-server/data/User/workspaceStorage/f6151e2e7cef4b7a2ea20ecd201edf69/ms-python.python/pythonrc.py', 'ANTIGRAVITY_CONVERSATION_ID': '3e3d433a-9f90-4798-a375-472db16b0f68', 'VIRTUAL_ENV_PROMPT': '(venv)', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9c96a062f4.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control:/opt/ros/jazzy', 'ANTIGRAVITY_PROJECT_ID': 'default-cli-project', 'SHELL': '/bin/bash', 'ANTIGRAVITY_LS_ADDRESS': 'localhost:42071', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/connor/robotics_projects/surgical-arm-ros2/venv', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'ANTIGRAVITY_TRAJECTORY_ID': '23ee3064-401c-408c-a1e3-4ff65bf3b5ec', 'PWD': '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control', 'COPILOT_DEBUG_NONCE': '2ae2427b14e28ebdc9038d5738b2b882', 'RCUTILS_COLORIZED_OUTPUT': '1', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'ANTIGRAVITY_CSRF_TOKEN': '', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'VSCODE_WSL_EXT_LOCATION/up'}, 'shell': False}
+[2.218970] (-) TimerEvent: {}
+[2.319803] (-) TimerEvent: {}
+[2.420517] (-) TimerEvent: {}
+[2.521379] (-) TimerEvent: {}
+[2.622620] (-) TimerEvent: {}
+[2.723543] (-) TimerEvent: {}
+[2.821833] (arm_control) StdoutLine: {'line': b'running egg_info\n'}
+[2.823790] (-) TimerEvent: {}
+[2.870095] (arm_control) StdoutLine: {'line': b'writing ../../build/arm_control/arm_control.egg-info/PKG-INFO\n'}
+[2.874760] (arm_control) StdoutLine: {'line': b'writing dependency_links to ../../build/arm_control/arm_control.egg-info/dependency_links.txt\n'}
+[2.877573] (arm_control) StdoutLine: {'line': b'writing entry points to ../../build/arm_control/arm_control.egg-info/entry_points.txt\n'}
+[2.879639] (arm_control) StdoutLine: {'line': b'writing requirements to ../../build/arm_control/arm_control.egg-info/requires.txt\n'}
+[2.880602] (arm_control) StdoutLine: {'line': b'writing top-level names to ../../build/arm_control/arm_control.egg-info/top_level.txt\n'}
+[2.924065] (-) TimerEvent: {}
+[2.969129] (arm_control) StdoutLine: {'line': b"reading manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'\n"}
+[2.969991] (arm_control) StdoutLine: {'line': b"adding license file 'LICENSE'\n"}
+[2.971330] (arm_control) StdoutLine: {'line': b"writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'\n"}
+[2.972143] (arm_control) StdoutLine: {'line': b'running build\n'}
+[2.972676] (arm_control) StdoutLine: {'line': b'running build_py\n'}
+[2.973514] (arm_control) StdoutLine: {'line': b'copying arm_control/camera_playback.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control\n'}
+[2.976868] (arm_control) StdoutLine: {'line': b'running install\n'}
+[2.987671] (arm_control) StdoutLine: {'line': b'running install_lib\n'}
+[3.024515] (-) TimerEvent: {}
+[3.041846] (arm_control) StdoutLine: {'line': b'copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/camera_playback.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control\n'}
+[3.043782] (arm_control) StdoutLine: {'line': b'byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/camera_playback.py to camera_playback.cpython-312.pyc\n'}
+[3.064223] (arm_control) StdoutLine: {'line': b'running install_data\n'}
+[3.066150] (arm_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.107629] (arm_control) StdoutLine: {'line': b"removing '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[3.108688] (arm_control) StdoutLine: {'line': b'Copying ../../build/arm_control/arm_control.egg-info to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info\n'}
+[3.110743] (arm_control) StdoutLine: {'line': b'running install_scripts\n'}
+[3.124782] (-) TimerEvent: {}
+[3.225547] (-) TimerEvent: {}
+[3.326187] (-) TimerEvent: {}
+[3.355349] (arm_control) StdoutLine: {'line': b'Installing camera_playback script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.356204] (arm_control) StdoutLine: {'line': b'Installing camera_training script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.356374] (arm_control) StdoutLine: {'line': b'Installing eye_to_hand_calibration script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.356686] (arm_control) StdoutLine: {'line': b'Installing force_sensor script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.357411] (arm_control) StdoutLine: {'line': b'Installing lerobot_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.357696] (arm_control) StdoutLine: {'line': b'Installing lerobot_motionplan script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.358135] (arm_control) StdoutLine: {'line': b'Installing lerobot_sim script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.358665] (arm_control) StdoutLine: {'line': b'Installing playback_transformer script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.359124] (arm_control) StdoutLine: {'line': b'Installing teleop_transformer script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.359611] (arm_control) StdoutLine: {'line': b'Installing zed_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control\n'}
+[3.360705] (arm_control) StdoutLine: {'line': b"writing list of installed files to '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log'\n"}
+[3.427045] (arm_control) CommandEnded: {'returncode': 0}
+[3.429154] (-) TimerEvent: {}
+[3.470379] (arm_control) JobEnded: {'identifier': 'arm_control', 'rc': 0}
+[3.478547] (-) EventReactorShutdown: {}

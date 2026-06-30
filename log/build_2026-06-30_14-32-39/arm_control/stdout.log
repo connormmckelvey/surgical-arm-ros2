@@ -1,0 +1,30 @@
+running egg_info
+writing ../../build/arm_control/arm_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/arm_control/arm_control.egg-info/dependency_links.txt
+writing entry points to ../../build/arm_control/arm_control.egg-info/entry_points.txt
+writing requirements to ../../build/arm_control/arm_control.egg-info/requires.txt
+writing top-level names to ../../build/arm_control/arm_control.egg-info/top_level.txt
+reading manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying launch/training.launch.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/share/arm_control/launch
+running install_egg_info
+removing '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/arm_control/arm_control.egg-info to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info
+running install_scripts
+Installing camera_playback script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing camera_training script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing eye_to_hand_calibration script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing force_sensor script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing lerobot_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing lerobot_motionplan script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing lerobot_sim script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing playback_transformer script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing teleop_transformer script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+Installing zed_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+writing list of installed files to '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log'

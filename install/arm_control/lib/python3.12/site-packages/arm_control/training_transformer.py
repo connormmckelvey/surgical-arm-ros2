@@ -47,10 +47,10 @@ class TeleopTransformerNode(Node):
         try:
             # Reconstruct numpy arrays from ZED
             shoulder = np.array([msg.poses[0].position.x, msg.poses[0].position.y, msg.poses[0].position.z])
-            wrist = np.array([msg.poses[1].position.x, msg.poses[1].position.y, msg.poses[1].position.z])
+            hand = np.array([msg.poses[3].position.x, msg.poses[3].position.y, msg.poses[3].position.z])
 
             # Extract relative human displacement vector
-            human_displacement = wrist - shoulder
+            human_displacement = hand - shoulder
             #print(f"Raw human displacement vector: {human_displacement}")
 
             # Coordinate transformation (Direct 1-to-1 mapping)

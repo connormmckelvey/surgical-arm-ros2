@@ -1,0 +1,32 @@
+[1.344s] Invoking command in '/home/connor/robotics_projects/surgical-arm-ros2/src/arm_control': PYTHONPATH=/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_control build --build-base /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build install --record /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log --single-version-externally-managed install_data
+[1.705s] running egg_info
+[1.732s] writing ../../build/arm_control/arm_control.egg-info/PKG-INFO
+[1.734s] writing dependency_links to ../../build/arm_control/arm_control.egg-info/dependency_links.txt
+[1.735s] writing entry points to ../../build/arm_control/arm_control.egg-info/entry_points.txt
+[1.735s] writing requirements to ../../build/arm_control/arm_control.egg-info/requires.txt
+[1.736s] writing top-level names to ../../build/arm_control/arm_control.egg-info/top_level.txt
+[1.791s] reading manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+[1.791s] adding license file 'LICENSE'
+[1.799s] writing manifest file '../../build/arm_control/arm_control.egg-info/SOURCES.txt'
+[1.802s] running build
+[1.802s] running build_py
+[1.802s] copying arm_control/zed_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control
+[1.805s] running install
+[1.814s] running install_lib
+[1.846s] copying /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build/lib/arm_control/zed_driver.py -> /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control
+[1.847s] byte-compiling /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control/zed_driver.py to zed_driver.cpython-312.pyc
+[1.853s] running install_data
+[1.853s] running install_egg_info
+[1.884s] removing '/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info' (and everything under it)
+[1.885s] Copying ../../build/arm_control/arm_control.egg-info to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages/arm_control-0.0.0-py3.12.egg-info
+[1.889s] running install_scripts
+[2.059s] Installing camera_execution script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.060s] Installing camera_training script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.060s] Installing force_sensor script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.061s] Installing lerobot_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.061s] Installing lerobot_motionplan script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.062s] Installing lerobot_sim script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.063s] Installing teleop_transformer script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.063s] Installing zed_driver script to /home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/arm_control
+[2.064s] writing list of installed files to '/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log'
+[2.119s] Invoked command in '/home/connor/robotics_projects/surgical-arm-ros2/src/arm_control' returned '0': PYTHONPATH=/home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/connor/robotics_projects/surgical-arm-ros2/install/arm_control/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_control build --build-base /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/build install --record /home/connor/robotics_projects/surgical-arm-ros2/build/arm_control/install.log --single-version-externally-managed install_data

@@ -52,7 +52,7 @@ class ZedDriverNode(Node):
         # --- ZED Hardware Interface Configuration ---
         self.zed = sl.Camera()
         init_params = sl.InitParameters()
-        init_params.camera_resolution = sl.RESOLUTION.VGA
+        init_params.camera_resolution = sl.RESOLUTION.HD720
         init_params.camera_fps = camera_fps
         init_params.depth_mode = sl.DEPTH_MODE.NEURAL
         init_params.coordinate_units = sl.UNIT.METER

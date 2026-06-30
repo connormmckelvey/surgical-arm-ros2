@@ -1,9 +1,11 @@
 [console_scripts]
-camera_execution = arm_control.camera_execution:main
+camera_playback = arm_control.camera_playback:main
 camera_training = arm_control.camera_training:main
+eye_to_hand_calibration = arm_control.eye_to_hand_calibration:main
 force_sensor = arm_control.force_sensor:main
 lerobot_driver = arm_control.lerobot_driver:main
 lerobot_motionplan = arm_control.lerobot_motionplan:main
 lerobot_sim = arm_control.lerobot_sim:main
+playback_transformer = arm_control.playback_transformer:main
 teleop_transformer = arm_control.teleop_transformer:main
 zed_driver = arm_control.zed_driver:main
