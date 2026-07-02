@@ -26,12 +26,12 @@ class LerobotMotionPlannerNode(Node):
         self.w5 = np.array([1, 0, 0])
         self.q5 = np.array([0.289, 0, 0.228])
         self.w6 = np.array([0, 1, 0])
-        self.q6 = np.array([0.314, 0, 0.243])
+        self.q6 = np.array([0.326, 0, 0.228])
 
         self.M = np.array([
-            [1, 0, 0, 0.391],
+            [1, 0, 0, 0.430],
             [0, 1, 0, 0.000],
-            [0, 0, 1, 0.243],
+            [0, 0, 1, 0.228],
             [0, 0, 0, 1.000]
         ])
 

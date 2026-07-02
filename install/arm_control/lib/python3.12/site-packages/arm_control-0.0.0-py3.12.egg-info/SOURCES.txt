@@ -10,9 +10,9 @@ setup.py
 ../../build/arm_control/arm_control.egg-info/top_level.txt
 ../../build/arm_control/arm_control.egg-info/zip-safe
 arm_control/__init__.py
+arm_control/camera_calibration.py
 arm_control/camera_playback.py
 arm_control/camera_training.py
-arm_control/eye_to_hand_calibration.py
 arm_control/force_sensor.py
 arm_control/lerobot_driver.py
 arm_control/lerobot_motionplan.py
@@ -33,6 +33,7 @@ arm_control/utilities/rosbag_capture.py
 arm_control/utilities/se3.py
 arm_control/utilities/so3.py
 arm_control/utilities/tool.py
+launch/calibrate.launch.py
 launch/playback.launch.py
 launch/teleop.launch.py
 launch/training.launch.py

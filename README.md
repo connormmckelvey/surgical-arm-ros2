@@ -255,7 +255,9 @@ source install/setup.bash
 
 Instead of launching nodes in separate terminals, you can spin up the entire pipeline with a single command. 
 
-Both launch files support a `sim` argument (defaults to `false`). Pass `sim:=true` to run the Rviz simulation mock instead of connecting to physical hardware over USB.
+The launch files support the following optional arguments:
+* **`sim`** (defaults to `false`): Pass `sim:=true` to run the RViz simulation mock instead of connecting to physical hardware over USB (supported in `teleop`, `playback`, and `calibrate`).
+* **`viz`** (defaults to `false`): Pass `viz:=true` to display the local OpenCV debug window showing exactly what the ZED camera sees in real time (supported in all launch files).
 
 #### A. Run Active Live Mirroring
 1. **Launch mirroring stack:**
@@ -286,6 +288,17 @@ Starts only the camera driver, force sensor, and training UI node for data recor
 1. **Launch training pipeline:**
    ```bash
    ros2 launch arm_control training.launch.py
+   ```
+2. **Launch RViz Visualizer:**
+   ```bash
+   rviz2
+   ```
+
+#### D. Run Eye-to-Hand Calibration
+Starts the camera driver, driver (real or sim), motion planner, and calibration node:
+1. **Launch calibration pipeline:**
+   ```bash
+   ros2 launch arm_control calibrate.launch.py sim:=true
    ```
 2. **Launch RViz Visualizer:**
    ```bash

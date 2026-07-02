@@ -13,6 +13,7 @@ class LeRobotDriverNode(Node):
         # Motion parameters
         self.max_step_deg = 2.0
         self.control_loop_period = 0.05  # 20Hz loop
+        self.gripper_offset = 50.0  # Gripper offset to ensure it starts in a neutral position
 
         # Order: [shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper]
         self.lerobot_keys = [
@@ -24,11 +25,12 @@ class LeRobotDriverNode(Node):
         config = SO101FollowerConfig(port="/dev/ttyACM0", id="dbot")
         self.robot = SO101Follower(config)
         self.robot.connect(calibrate=True)
-        self.get_logger().info("Hardware connection established over LeRobot follower bus.")
+        self.get_logger().info("Hardware connection established with LeRobot")
 
         # 2. Zero Out All Joints to Home Position
         self.get_logger().info("Initializing: Commanding all joints to 0.0 Position...")
-        startup_home_action = {name: 0.0 for name in self.lerobot_keys}
+        startup_home_action = {"shoulder_pan.pos": 0.0, "shoulder_lift.pos": 0.0, "elbow_flex.pos": 0.0,
+                               "wrist_flex.pos": 0.0, "wrist_roll.pos": 0.0, "gripper.pos": 50.0}
         self.robot.send_action(startup_home_action)
         
         # Now that the physical hardware has been explicitly sent to 0, 
@@ -72,6 +74,7 @@ class LeRobotDriverNode(Node):
                 name: float(self.current_positions[idx])
                 for idx, name in enumerate(self.lerobot_keys)
             }
+            action["gripper.pos"] += self.gripper_offset  # Apply gripper offset
             self.robot.send_action(action)
 
         # Continually publish state back to your planner node

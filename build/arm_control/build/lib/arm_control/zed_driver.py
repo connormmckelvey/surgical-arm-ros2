@@ -20,7 +20,6 @@ from arm_control.utilities.ZED_bodytracking_34 import (
     draw_arm_points_and_lines,
 )
 
-
 class ZedDriverNode(Node):
     def __init__(self):
         super().__init__('zed_driver')
@@ -29,7 +28,7 @@ class ZedDriverNode(Node):
         self.declare_parameter('arm_to_track', 'left')
         self.arm_to_track = self.get_parameter('arm_to_track').value
 
-        self.declare_parameter('show_visualization', False)
+        self.declare_parameter('show_visualization', True)
         self.show_visualization = self.get_parameter('show_visualization').value
 
         self.declare_parameter('camera_fps', 15)

@@ -1,4 +1,6 @@
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
@@ -7,7 +9,8 @@ def generate_launch_description():
         package='arm_control',
         executable='zed_driver',
         name='zed_driver',
-        output='screen'
+        output='screen',
+        parameters=[{'show_visualization': False}]
     )
 
     # 2. Force Sensor Driver

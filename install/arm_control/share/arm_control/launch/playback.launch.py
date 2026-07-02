@@ -12,6 +12,12 @@ def generate_launch_description():
         description='Set to true to run in simulation mode using lerobot_sim'
     )
 
+    viz_arg = DeclareLaunchArgument(
+        'viz',
+        default_value='false',
+        description='Set to true to show the ZED camera local debug window'
+    )
+
     sim_value = LaunchConfiguration('sim')
 
     # 1. Driver (Simulation or Real Hardware)
@@ -36,7 +42,8 @@ def generate_launch_description():
         package='arm_control',
         executable='zed_driver',
         name='zed_driver',
-        output='screen'
+        output='screen',
+        parameters=[{'show_visualization': LaunchConfiguration('viz')}]
     )
 
     # 3. Motion Planner
@@ -65,6 +72,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         sim_arg,
+        viz_arg,
         driver_sim_node,
         driver_real_node,
         camera_node,

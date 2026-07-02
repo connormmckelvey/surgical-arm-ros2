@@ -166,7 +166,7 @@ def get_single_body(bodies, mode="closest"):
     # -------------------------------------------------
 
     if len(bodies.body_list) == 0:
-        print("No detected bodies!")
+        #print("No detected bodies!")
         return None
 
     # -------------------------------------------------

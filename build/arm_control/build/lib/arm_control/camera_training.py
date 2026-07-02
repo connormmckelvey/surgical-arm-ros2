@@ -300,10 +300,12 @@ class CameraTrainingNode(Node):
             self.send_rviz_delete_markers()
             self.get_logger().info("Mesh memory and visuals cleared.")
             if self.rosbag_enabled and self.bag_process is not None:
+                print("Stopping rosbag recording...")
                 rb.stop_rosbag_recording(self.bag_process)
                 self.bag_process = None
         elif key == ord('s'):
             if self.rosbag_enabled:
+                print("Starting rosbag recording...")
                 self.bag_process = rb.start_rosbag_recording(self.topics_to_record, self.rosbag_folder)
                 time.sleep(1)
             self.process_and_update_mesh()

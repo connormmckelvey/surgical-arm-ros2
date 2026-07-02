@@ -2,7 +2,8 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32MultiArray
-from geometry_msgs.msg import Point
+from geometry_msgs.msg import Point, Pose
+from scipy.spatial.transform import Rotation as ScipyRot
 
 from arm_control.utilities.fk import *
 from arm_control.utilities.se3 import *
@@ -26,12 +27,12 @@ class LerobotMotionPlannerNode(Node):
         self.w5 = np.array([1, 0, 0])
         self.q5 = np.array([0.289, 0, 0.228])
         self.w6 = np.array([0, 1, 0])
-        self.q6 = np.array([0.314, 0, 0.243])
+        self.q6 = np.array([0.326, 0, 0.228])
 
         self.M = np.array([
-            [1, 0, 0, 0.391],
+            [1, 0, 0, 0.430],
             [0, 1, 0, 0.000],
-            [0, 0, 1, 0.243],
+            [0, 0, 1, 0.228],
             [0, 0, 0, 1.000]
         ])
 
@@ -70,7 +71,7 @@ class LerobotMotionPlannerNode(Node):
 
         # Target Cartesian Pose Subscriber
         self.cartesian_sub = self.create_subscription(
-            Point,
+            Pose,
             '/arm/target_cartesian_pose',
             self.cartesian_callback,
             10
@@ -78,7 +79,7 @@ class LerobotMotionPlannerNode(Node):
 
         # FIXED: Corrected standard ROS2 Publisher configuration (No callback parameter)
         self.current_cartesian_pub = self.create_publisher(
-            Point,
+            Pose,
             '/arm/current_cartesian_pose',
             10
         )
@@ -94,19 +95,27 @@ class LerobotMotionPlannerNode(Node):
         try:
             T_base_to_ee = self.compute_forward_kinematics()
             
-            # Create and publish the geometry point message
-            cartesian_msg = Point()
-            cartesian_msg.x = float(T_base_to_ee[0, 3])
-            cartesian_msg.y = float(T_base_to_ee[1, 3])
-            cartesian_msg.z = float(T_base_to_ee[2, 3])
+            # Create and publish the geometry pose message
+            cartesian_msg = Pose()
+            cartesian_msg.position.x = float(T_base_to_ee[0, 3])
+            cartesian_msg.position.y = float(T_base_to_ee[1, 3])
+            cartesian_msg.position.z = float(T_base_to_ee[2, 3])
+            
+            # Compute real-time orientation quaternion from FK matrix
+            R_mat = T_base_to_ee[:3, :3]
+            q = ScipyRot.from_matrix(R_mat).as_quat() # [x, y, z, w]
+            cartesian_msg.orientation.x = float(q[0])
+            cartesian_msg.orientation.y = float(q[1])
+            cartesian_msg.orientation.z = float(q[2])
+            cartesian_msg.orientation.w = float(q[3])
             
             self.current_cartesian_pub.publish(cartesian_msg)
         except Exception as e:
             self.get_logger().error(f"Failed to compute or publish forward kinematics: {e}")
 
     def cartesian_callback(self, msg):
-        p_des = np.array([msg.x, msg.y, msg.z], dtype=float)
-        self.get_logger().info(f"Received target destination: X={msg.x:.3f}, Y={msg.y:.3f}, Z={msg.z:.3f}")
+        p_des = np.array([msg.position.x, msg.position.y, msg.position.z], dtype=float)
+        self.get_logger().info(f"Received target destination: X={msg.position.x:.3f}, Y={msg.position.y:.3f}, Z={msg.position.z:.3f}")
         self.command_cartesian_position(p_des)
 
     def compute_forward_kinematics(self):

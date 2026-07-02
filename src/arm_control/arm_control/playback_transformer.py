@@ -5,7 +5,7 @@ import json
 import numpy as np
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Point
+from geometry_msgs.msg import Point, Pose
 from visualization_msgs.msg import Marker
 
 class PlaybackTransformerNode(Node):
@@ -45,7 +45,7 @@ class PlaybackTransformerNode(Node):
 
         # Publishers
         self.target_pose_pub = self.create_publisher(
-            Point, '/arm/target_cartesian_pose', 10)
+            Pose, '/arm/target_cartesian_pose', 10)
         self.marker_pub = self.create_publisher(
             Marker, '/arm/target_pose_marker', 10)
 
@@ -82,11 +82,15 @@ class PlaybackTransformerNode(Node):
 
         self.get_logger().info(f"Playback target: X={clipped_target[0]:.3f}, Y={clipped_target[1]:.3f}, Z={clipped_target[2]:.3f}", throttle_duration_sec=2.0)
 
-        # 4. Publish target Point for motion planner
-        cmd_msg = Point()
-        cmd_msg.x = float(clipped_target[0])
-        cmd_msg.y = float(clipped_target[1])
-        cmd_msg.z = float(clipped_target[2])
+        # 4. Publish target Pose for motion planner
+        cmd_msg = Pose()
+        cmd_msg.position.x = float(clipped_target[0])
+        cmd_msg.position.y = float(clipped_target[1])
+        cmd_msg.position.z = float(clipped_target[2])
+        cmd_msg.orientation.x = 0.0
+        cmd_msg.orientation.y = 0.0
+        cmd_msg.orientation.z = 0.0
+        cmd_msg.orientation.w = 1.0
         self.target_pose_pub.publish(cmd_msg)
 
         # 5. Publish RViz marker
@@ -98,9 +102,9 @@ class PlaybackTransformerNode(Node):
         marker.type = Marker.SPHERE
         marker.action = Marker.ADD
         
-        marker.pose.position.x = cmd_msg.x
-        marker.pose.position.y = cmd_msg.y
-        marker.pose.position.z = cmd_msg.z
+        marker.pose.position.x = cmd_msg.position.x
+        marker.pose.position.y = cmd_msg.position.y
+        marker.pose.position.z = cmd_msg.position.z
         marker.pose.orientation.w = 1.0
         
         marker.scale.x = 0.08

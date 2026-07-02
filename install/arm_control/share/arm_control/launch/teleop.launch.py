@@ -11,14 +11,13 @@ def generate_launch_description():
         default_value='false',
         description='Set to true to run in simulation mode using lerobot_sim'
     )
-
     sim_value = LaunchConfiguration('sim')
 
     # 1. Driver (Simulation or Real Hardware)
     driver_sim_node = Node(
         package='arm_control',
         executable='lerobot_sim',
-        name='lerobot_driver', # Keeps same name for namespace parity
+        name='lerobot_driver',
         output='screen',
         condition=IfCondition(sim_value)
     )
@@ -36,23 +35,22 @@ def generate_launch_description():
         package='arm_control',
         executable='zed_driver',
         name='zed_driver',
-        output='screen'
+        output='screen',
+        parameters=[{'show_visualization': True}]
     )
 
     # 3. Motion Planner
     planner_node = Node(
         package='arm_control',
         executable='lerobot_motionplan',
-        name='lerobot_motionplan',
-        output='screen'
+        name='lerobot_motionplan'
     )
 
     # 4. Teleop Transformer
     transformer_node = Node(
         package='arm_control',
         executable='teleop_transformer',
-        name='teleop_transformer',
-        output='screen'
+        name='teleop_transformer'
     )
 
     return LaunchDescription([

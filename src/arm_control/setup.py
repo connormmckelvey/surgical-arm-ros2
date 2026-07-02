@@ -13,7 +13,8 @@ setup(
         ('share/' + package_name + '/launch', [
             'launch/teleop.launch.py',
             'launch/playback.launch.py',
-            'launch/training.launch.py'
+            'launch/training.launch.py',
+            'launch/calibrate.launch.py'
         ]),
     ],
     install_requires=['setuptools','lerobot', 'numpy', 'opencv-python', 'pyzed'],

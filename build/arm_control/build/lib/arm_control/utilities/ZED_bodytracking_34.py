@@ -166,7 +166,7 @@ def get_single_body(bodies, mode="closest"):
     # -------------------------------------------------
 
     if len(bodies.body_list) == 0:
-        print("No detected bodies!")
+        #print("No detected bodies!")
         return None
 
     # -------------------------------------------------
@@ -1251,7 +1251,6 @@ if __name__ == "__main__":
     err = zed.open(init_params)
 
     if err != sl.ERROR_CODE.SUCCESS:
-        print("Failed to open ZED camera:", err)
         exit(1)
 
     print("Camera opened.")
